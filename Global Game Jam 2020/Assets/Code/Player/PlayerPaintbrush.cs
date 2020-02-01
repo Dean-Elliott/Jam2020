@@ -1,18 +1,35 @@
 ﻿using System;
 using UnityEngine;
 
+public enum ColorType
+{
+    Red,
+    Yellow,
+    Blue,
+    None
+}
+
 public class PlayerPaintbrush : Player
 {
     [SerializeField]
-    private Renderer[] renderers = { };
+    private float paintBrushRadius = 1.2f;
 
     [SerializeField]
-    private bool invert = false;
+    private Material paintMaterial;
+
+    [SerializeField]
+    private bool invert;
+
+    [SerializeField]
+    private PaintBall paintSpill;
+
+    [SerializeField]
+    private Transform paintSpawnpoint;
 
     /// <summary>
     /// The colour of the paint brush.
     /// </summary>
-    public Color Color { get; set; } = Color.white;
+    public ColorType Color { get; set; } = ColorType.None;
 
     protected override void OnUpdate()
     {
@@ -25,12 +42,9 @@ public class PlayerPaintbrush : Player
             }
         }
 
-        foreach (Renderer renderer in renderers)
-        {
-            renderer.material.color = Color;
-        }
+        paintMaterial.color = Paintable.GetColor(Color);
 
-        if (LeftTrigger > 0.2f)
+        if (LeftTrigger > 0.1f)
         {
             Paint();
         }
@@ -49,12 +63,36 @@ public class PlayerPaintbrush : Player
             x *= -1f;
         }
 
-        Vector3 eulerAngles = new Vector3(magnitude * 90f, x * 90f, 0f);
+        x *= 90f;
+        Vector3 eulerAngles = new Vector3(magnitude * 90f, x, 0f);
         transform.eulerAngles = eulerAngles;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Paintable.GetColor(Color);
+        Gizmos.DrawWireSphere(paintSpawnpoint.position, paintBrushRadius);
     }
 
     private void Paint()
     {
+        Paintable[] paintables = FindObjectsOfType<Paintable>();
+        float closestDistance = float.MaxValue;
+        Paintable closestPaintable = null;
+        foreach (Paintable paintable in paintables)
+        {
+            float dist = (paintable.transform.position - paintSpawnpoint.position).sqrMagnitude;
+            if (dist < closestDistance && dist < paintBrushRadius * paintBrushRadius)
+            {
+                closestDistance = dist;
+                closestPaintable = paintable;
+            }
+        }
 
+        //paint the thingy
+        if (closestPaintable)
+        {
+            closestPaintable.Paint(Color);
+        }
     }
 }

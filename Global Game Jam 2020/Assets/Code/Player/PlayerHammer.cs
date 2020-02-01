@@ -25,6 +25,8 @@ public class PlayerHammer : Player
         if (IsHammering)
         {
             CanLookAround = false;
+            Movement.Gravity = false;
+            CanMove = false;
 
             //animate here
             animationTime += Time.deltaTime;
@@ -46,6 +48,7 @@ public class PlayerHammer : Player
         if (LeftTrigger > 0.1f)
         {
             wasPullingBack = true;
+            CanMove = false;
 
             //swing back lmao
             float angle = pullbackAngle.Evaluate(LeftTrigger);
