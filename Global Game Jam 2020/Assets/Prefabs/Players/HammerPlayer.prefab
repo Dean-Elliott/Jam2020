@@ -80,6 +80,66 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
+  visual: {fileID: 8127866561122207208}
+  maxPullbackAngle: -80
+  pullbackAngle:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  animationDuration: 0.2
+  hammerSwingCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 14.069634
+      outSlope: 14.069634
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.07107505
+      value: 1
+      inSlope: 13.04902
+      outSlope: -0.0017690115
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 1
+      outWeight: 0.69653153
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0.0059291013
+      outSlope: 0.0059291013
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.5000634
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &4924608821145923311
 PrefabInstance:
   m_ObjectHideFlags: 0

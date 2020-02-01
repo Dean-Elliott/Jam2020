@@ -7,10 +7,20 @@ public class Player : MonoBehaviour
     [SerializeField]
     private int id = 0;
 
+    [SerializeField]
+    private Transform visual;
+
     /// <summary>
     /// The movement component attached to this player.
     /// </summary>
     public PlayerMovement Movement { get; private set; }
+
+    /// <summary>
+    /// Can the player look around using the left stick?
+    /// </summary>
+    public bool CanLookAround { get; set; } = true;
+
+    public Transform Visual => visual;
 
     private void Awake()
     {
@@ -27,6 +37,22 @@ public class Player : MonoBehaviour
             }
 
             return null;
+        }
+    }
+
+    public float LeftTrigger
+    {
+        get
+        {
+            return Gamepad?.leftTrigger?.ReadValue() ?? (Keyboard.current.qKey.isPressed ? 1 : 0);
+        }
+    }
+
+    public float RightTrigger
+    {
+        get
+        {
+            return Gamepad?.rightTrigger?.ReadValue() ?? (Keyboard.current.eKey.isPressed ? 1 : 0);
         }
     }
 
@@ -74,7 +100,17 @@ public class Player : MonoBehaviour
         Movement.Input = input;
         Movement.Jump = jump;
 
-        LookAround();
+        if (CanLookAround)
+        {
+            LookAround();
+        }
+
+        OnUpdate();
+    }
+
+    protected virtual void OnUpdate()
+    {
+
     }
 
     private void LookAround()
