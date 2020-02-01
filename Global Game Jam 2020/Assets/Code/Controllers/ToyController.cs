@@ -18,13 +18,14 @@ public class ToyController : MonoBehaviour
     private float paintAccuracy;
 
     public float bonusTimeLimit;
-    private float elapsingBonusTime;
+
+    [HideInInspector]
+    public float elapsingBonusTime;
 
     // Start is called before the first frame update
     void Start()
     {
         animatorComponent = gameObject.GetComponent<Animator>();
-
         elapsingBonusTime = bonusTimeLimit;
     }
 
@@ -37,8 +38,6 @@ public class ToyController : MonoBehaviour
         }
 
         elapsingBonusTime -= Time.deltaTime;
-
-        //Debug.Log(elapsingBonusTime);
 
         if (elapsingBonusTime < 0.0f)
         {
@@ -55,16 +54,10 @@ public class ToyController : MonoBehaviour
 
     public void ToyCompleted()
     {
-        totalToyScore += elapsingBonusTime + paintAccuracy;
+        totalToyScore += (float)System.Math.Round(elapsingBonusTime, 0) + paintAccuracy;
         animatorComponent.SetBool("ToyCompleted", true);
 
         Debug.Log("Total toy score: " + totalToyScore);
-    }
-
-    public void SetEnterPosition()
-    {
-        Debug.Log("Enter position set");
-        transform.position = enterPosition;
     }
 
     public void TransitionToNewToy()
