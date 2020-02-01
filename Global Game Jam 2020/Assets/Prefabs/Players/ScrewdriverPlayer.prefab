@@ -81,7 +81,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   visual: {fileID: 9040916189249394554}
-  snapRadius: 0.8
   animationDuration: 0.2
   positionCurve:
     serializedVersion: 2
@@ -107,7 +106,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  distanceToTip: 1.2
+  distanceToTip: 0.78
 --- !u!1001 &1251907727501094433
 PrefabInstance:
   m_ObjectHideFlags: 0

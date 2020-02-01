@@ -143,6 +143,30 @@ MonoBehaviour:
   screwInSpeed: 1
   radius: 0.5
   screwedInDistance: 1.49
+  screwCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1.99819
+      outSlope: 1.99819
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.108333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &6973183600178148607
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,11 +280,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6973183599832433402}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 6e6895b3083339c4b8776e49472c1cbb,
-        type: 3}
-      propertyPath: m_Name
-      value: Block_Screw
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 6e6895b3083339c4b8776e49472c1cbb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -335,6 +354,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CastShadows
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 6e6895b3083339c4b8776e49472c1cbb,
+        type: 3}
+      propertyPath: m_Name
+      value: Block_Screw
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e6895b3083339c4b8776e49472c1cbb, type: 3}
