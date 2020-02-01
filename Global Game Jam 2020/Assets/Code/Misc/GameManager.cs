@@ -5,6 +5,11 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    private static GameManager instance;
+
+    public Color colorRed = Color.red;
+    public Color colorYellow = Color.yellow;
+    public Color colorBlue = Color.blue;
     public GameObject[] toys;
     private int currentToy = 0;
 
@@ -47,5 +52,28 @@ public class GameManager : MonoBehaviour
     public void FinishGame()
     {
         Debug.Log("Game Finished!");
+    }
+
+    public static Color GetColor(ColorType colorType)
+    {
+        if (!instance)
+        {
+            instance = FindObjectOfType<GameManager>();
+        }
+
+        if (colorType == ColorType.Blue)
+        {
+            return instance.colorBlue;
+        }
+        else if (colorType == ColorType.Red)
+        {
+            return instance.colorRed;
+        }
+        else if (colorType == ColorType.Yellow)
+        {
+            return instance.colorYellow;
+        }
+
+        return Color.white;
     }
 }

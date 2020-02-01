@@ -22,6 +22,20 @@ public class Player : MonoBehaviour
 
     public bool CanMove { get; set; } = true;
 
+    /// <summary>
+    /// Rotation that the player should be looking towards based on left stick.
+    /// </summary>
+    public float Rotation
+    {
+        get
+        {
+            float x = LeftStick.x;
+            float y = LeftStick.y;
+            Vector3 lookDir = new Vector3(x, y).normalized;
+            return Mathf.Atan2(lookDir.x, lookDir.y) * Mathf.Rad2Deg;
+        }
+    }
+
     public Transform Visual => visual;
 
     private void Awake()
@@ -48,19 +62,14 @@ public class Player : MonoBehaviour
         }
     }
 
-    public float LeftTrigger
+    public float Trigger
     {
         get
         {
-            return Gamepad?.leftTrigger?.ReadValue() ?? (Keyboard.current.qKey.isPressed ? 1 : 0);
-        }
-    }
-
-    public float RightTrigger
-    {
-        get
-        {
-            return Gamepad?.rightTrigger?.ReadValue() ?? (Keyboard.current.eKey.isPressed ? 1 : 0);
+            float kb = Keyboard.current.qKey.isPressed ? 1 : 0;
+            float right = Gamepad?.rightTrigger?.ReadValue() ?? default;
+            float left = Gamepad?.leftTrigger?.ReadValue() ?? default;
+            return Mathf.Max(kb, right, left);
         }
     }
 

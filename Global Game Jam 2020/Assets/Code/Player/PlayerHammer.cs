@@ -25,6 +25,8 @@ public class PlayerHammer : Player
         if (IsHammering)
         {
             CanLookAround = false;
+            Movement.Gravity = false;
+            CanMove = false;
 
             //animate here
             animationTime += Time.deltaTime;
@@ -43,12 +45,13 @@ public class PlayerHammer : Player
         }
 
         //pull back based on trigger
-        if (LeftTrigger > 0.1f)
+        if (Trigger > 0.1f)
         {
             wasPullingBack = true;
+            CanMove = false;
 
             //swing back lmao
-            float angle = pullbackAngle.Evaluate(LeftTrigger);
+            float angle = pullbackAngle.Evaluate(Trigger);
             Visual.localEulerAngles = new Vector3(angle * maxPullbackAngle, 0f, 0f);
         }
         else
