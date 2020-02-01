@@ -36,7 +36,7 @@ public class PlayerPaintbrush : Player
         PaintBucket[] buckets = FindObjectsOfType<PaintBucket>();
         foreach (PaintBucket bucket in buckets)
         {
-            if (bucket.Bounds.Contains(transform.position))
+            if (bucket.Bounds.Contains(paintSpawnpoint.position))
             {
                 Color = bucket.Color;
             }
@@ -44,7 +44,7 @@ public class PlayerPaintbrush : Player
 
         paintMaterial.color = Paintable.GetColor(Color);
 
-        if (LeftTrigger > 0.1f)
+        if (Trigger > 0.1f)
         {
             Paint();
         }

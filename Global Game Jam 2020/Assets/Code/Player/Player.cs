@@ -62,19 +62,14 @@ public class Player : MonoBehaviour
         }
     }
 
-    public float LeftTrigger
+    public float Trigger
     {
         get
         {
-            return Gamepad?.leftTrigger?.ReadValue() ?? (Keyboard.current.qKey.isPressed ? 1 : 0);
-        }
-    }
-
-    public float RightTrigger
-    {
-        get
-        {
-            return Gamepad?.rightTrigger?.ReadValue() ?? (Keyboard.current.eKey.isPressed ? 1 : 0);
+            float kb = Keyboard.current.qKey.isPressed ? 1 : 0;
+            float right = Gamepad?.rightTrigger?.ReadValue() ?? default;
+            float left = Gamepad?.leftTrigger?.ReadValue() ?? default;
+            return Mathf.Max(kb, right, left);
         }
     }
 

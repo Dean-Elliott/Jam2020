@@ -65,7 +65,7 @@ public class PlayerScrewdriver : Player
             }
 
             //released the left trigger
-            if (LeftTrigger < 0.2f)
+            if (Trigger < 0.2f)
             {
                 IsScrewingIn = false;
                 CanMove = true;
@@ -77,7 +77,7 @@ public class PlayerScrewdriver : Player
 
         //find closest screw
         closeScrew = GetClosestScrew();
-        if (closeScrew && LeftTrigger > 0.2f)
+        if (closeScrew && Trigger > 0.2f)
         {
             screwingTime = 0f;
             IsScrewingIn = true;
