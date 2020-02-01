@@ -26,6 +26,15 @@ public class PlayerPaintbrush : Player
     [SerializeField]
     private Transform paintSpawnpoint;
 
+    public Vector3 PaintTipPosition
+    {
+        get
+        {
+            Vector3 pos = transform.position + new Vector3(RightStick.x, 0f, RightStick.y).normalized * 1.8f;
+            return pos;
+        }
+    }
+
     /// <summary>
     /// The colour of the paint brush.
     /// </summary>
@@ -36,7 +45,7 @@ public class PlayerPaintbrush : Player
         PaintBucket[] buckets = FindObjectsOfType<PaintBucket>();
         foreach (PaintBucket bucket in buckets)
         {
-            if (bucket.Bounds.Contains(paintSpawnpoint.position))
+            if (bucket.Bounds.Contains(PaintTipPosition))
             {
                 Color = bucket.Color;
             }
@@ -44,12 +53,13 @@ public class PlayerPaintbrush : Player
 
         paintMaterial.color = Paintable.GetColor(Color);
 
-        if (Trigger > 0.1f)
+        Vector2 rightStick = RightStick;
+
+        if (Trigger > 0.1f && rightStick.sqrMagnitude > 0.1f)
         {
             Paint();
         }
 
-        Vector2 rightStick = RightStick;
         if (invert)
         {
             rightStick *= -1f;
@@ -64,14 +74,17 @@ public class PlayerPaintbrush : Player
         }
 
         x *= 90f;
-        Vector3 eulerAngles = new Vector3(magnitude * 90f, x, 0f);
-        transform.eulerAngles = eulerAngles;
+        if (rightStick.sqrMagnitude > 0.02f)
+        {
+            Vector3 eulerAngles = new Vector3(magnitude * 90f, x, 0f);
+            transform.eulerAngles = eulerAngles;
+        }
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Paintable.GetColor(Color);
-        Gizmos.DrawWireSphere(paintSpawnpoint.position, paintBrushRadius);
+        Gizmos.DrawWireSphere(PaintTipPosition, paintBrushRadius);
     }
 
     private void Paint()
@@ -81,7 +94,7 @@ public class PlayerPaintbrush : Player
         Paintable closestPaintable = null;
         foreach (Paintable paintable in paintables)
         {
-            float dist = (paintable.transform.position - paintSpawnpoint.position).sqrMagnitude;
+            float dist = (paintable.transform.position - PaintTipPosition).sqrMagnitude;
             if (dist < closestDistance && dist < paintBrushRadius * paintBrushRadius)
             {
                 closestDistance = dist;
