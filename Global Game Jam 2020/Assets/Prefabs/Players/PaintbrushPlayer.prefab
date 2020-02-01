@@ -81,8 +81,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   visual: {fileID: 8276452665692426719}
-  renderers:
-  - {fileID: 1185745135741983762}
+  paintMaterial: {fileID: 5596651175626585437, guid: 4a670bbf8c83a984a8e16b931431153d,
+    type: 3}
+  invert: 0
+  paintSpill: {fileID: 7433732529965071457, guid: c38b481e2f7f6444ba37e6523678fa4d,
+    type: 3}
+  paintSpawnpoint: {fileID: 4333187214010475473}
 --- !u!1001 &763288570593336912
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -158,9 +162,9 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 763288570593336912}
   m_PrefabAsset: {fileID: 0}
---- !u!23 &1185745135741983762 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 1937429656774410818, guid: 555531b70a865094c96e000e0f4828a2,
+--- !u!4 &4333187214010475473 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3942105673014132097, guid: 555531b70a865094c96e000e0f4828a2,
     type: 3}
   m_PrefabInstance: {fileID: 763288570593336912}
   m_PrefabAsset: {fileID: 0}

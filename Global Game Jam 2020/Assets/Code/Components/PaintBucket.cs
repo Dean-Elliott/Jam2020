@@ -9,17 +9,17 @@ public class PaintBucket : MonoBehaviour
     private Vector3 offset = new Vector3(0f, 0f, 0f);
 
     [SerializeField]
-    private Color color = Color.white;
+    private ColorType color = ColorType.Red;
 
     [SerializeField]
     private Renderer[] renderers = { };
 
     public Bounds Bounds => new Bounds(transform.position + offset, size);
-    public Color Color => color;
+    public ColorType Color => color;
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = color;
+        Gizmos.color = Paintable.GetColor(color);
         Gizmos.DrawWireCube(Bounds.center, Bounds.size);
     }
 
@@ -27,7 +27,7 @@ public class PaintBucket : MonoBehaviour
     {
         foreach (Renderer renderer in renderers)
         {
-            renderer.material.color = color;
+            renderer.material.color = Paintable.GetColor(color);
         }
     }
 }
