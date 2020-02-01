@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     public bool IsGrounded { get; private set; }
 
-    public bool Gravity { get; set; }
+    public bool Gravity { get; set; } = true;
 
     /// <summary>
     /// The rigidbody attached to this player.
