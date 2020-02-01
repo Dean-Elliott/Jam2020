@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
@@ -29,19 +30,58 @@ public class Player : MonoBehaviour
         }
     }
 
+    public Vector2 LeftStick
+    {
+        get
+        {
+            Gamepad gamepad = Gamepad;
+            if (gamepad != null)
+            {
+                return gamepad.leftStick.ReadValue();
+            }
+            else
+            {
+                Vector2 vector = default;
+                if (Keyboard.current.wKey.isPressed)
+                {
+                    vector.y = 1;
+                }
+                else if (Keyboard.current.aKey.isPressed)
+                {
+                    vector.x = -1;
+                }
+                else if (Keyboard.current.sKey.isPressed)
+                {
+                    vector.y = -1;
+                }
+                else if (Keyboard.current.dKey.isPressed)
+                {
+                    vector.x = 1;
+                }
+
+                return vector;
+            }
+        }
+    }
+
     private void Update()
     {
         //send inputs to the movement thingy
-        float x = Gamepad.leftStick.x.ReadValue();
-        float y = Gamepad.leftStick.y.ReadValue();
-        bool jump = Gamepad.buttonSouth.isPressed;
+        float x = LeftStick.x;
+        float y = LeftStick.y;
+        bool jump = Gamepad?.buttonSouth?.isPressed ?? Keyboard.current.spaceKey.isPressed;
         Vector2 input = new Vector2(x, y);
         Movement.Input = input;
         Movement.Jump = jump;
 
+        LookAround();
+    }
+
+    private void LookAround()
+    {
         //looking around
-        x = Gamepad.rightStick.x.ReadValue();
-        y = Gamepad.rightStick.y.ReadValue();
+        float x = LeftStick.x;
+        float y = LeftStick.y;
 
         //check if joystick looked far enough
         Vector3 lookDir = new Vector3(x, y);
