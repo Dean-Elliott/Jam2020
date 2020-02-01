@@ -9,7 +9,7 @@ public class Nail : MonoBehaviour, IInteractable
     private int maxNailInStage = 2;
 
     [SerializeField]
-    private float nailedInDistance = 0;
+    private float nailedInDistance = 1f;
 
     private Vector3 originalPosition;
 

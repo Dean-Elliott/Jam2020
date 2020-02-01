@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2603095669438954559}
   - component: {fileID: 6771541030437391098}
-  - component: {fileID: 6110441053330457535}
   - component: {fileID: 3928003821470588996}
+  - component: {fileID: 4362340812709556553}
   m_Layer: 0
   m_Name: ScrewdriverPlayer
   m_TagString: Untagged
@@ -26,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3643939888800088442}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.8900001, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -50,19 +50,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6110441053330457535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3643939888800088442}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2f25e00190c285479b3520e77fdac7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 1
 --- !u!114 &3928003821470588996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,6 +67,47 @@ MonoBehaviour:
   decelerationFactor: 8
   gravity: 26
   jumpHeight: 2
+--- !u!114 &4362340812709556553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3643939888800088442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a19bbda4cac936f49939e41497a3ae1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  visual: {fileID: 9040916189249394554}
+  snapRadius: 0.8
+  animationDuration: 0.2
+  positionCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2.6541176
+      outSlope: 2.6541176
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.041666668
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2.5411754
+      outSlope: 2.5411754
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.050000012
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  distanceToTip: 1.2
 --- !u!1001 &1251907727501094433
 PrefabInstance:
   m_ObjectHideFlags: 0

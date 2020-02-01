@@ -20,11 +20,19 @@ public class Player : MonoBehaviour
     /// </summary>
     public bool CanLookAround { get; set; } = true;
 
+    public bool CanMove { get; set; } = true;
+
     public Transform Visual => visual;
 
     private void Awake()
     {
         Movement = GetComponent<PlayerMovement>();
+        OnAwake();
+    }
+
+    protected virtual void OnAwake()
+    {
+
     }
 
     public Gamepad Gamepad
@@ -90,6 +98,20 @@ public class Player : MonoBehaviour
         }
     }
 
+    public Vector2 RightStick
+    {
+        get
+        {
+            Gamepad gamepad = Gamepad;
+            if (gamepad != null)
+            {
+                return gamepad.rightStick.ReadValue();
+            }
+
+            return default;
+        }
+    }
+
     private void Update()
     {
         //send inputs to the movement thingy
@@ -97,8 +119,8 @@ public class Player : MonoBehaviour
         float y = LeftStick.y;
         bool jump = Gamepad?.buttonSouth?.isPressed ?? Keyboard.current.spaceKey.isPressed;
         Vector2 input = new Vector2(x, y);
-        Movement.Input = input;
-        Movement.Jump = jump;
+        Movement.Input = CanMove ? input : default;
+        Movement.Jump = CanMove ? jump : default;
 
         if (CanLookAround)
         {

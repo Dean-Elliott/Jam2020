@@ -35,6 +35,8 @@ public class PlayerHammer : Player
             {
                 IsHammering = false;
                 CanLookAround = true;
+                CanMove = true;
+                Movement.Gravity = true;
             }
 
             return;
@@ -65,6 +67,9 @@ public class PlayerHammer : Player
     {
         animationTime = 0f;
         IsHammering = true;
+        CanMove = false;
+        Movement.Gravity = false;
+        Movement.Rigidbody.velocity = Vector3.zero;
 
         //snap to nearest nail lol
         Nail[] nails = FindObjectsOfType<Nail>();
@@ -78,7 +83,7 @@ public class PlayerHammer : Player
                 continue;
             }
 
-            Vector3 dirToNail = (transform.position - nail.transform.position).normalized;
+            Vector3 dirToNail = (nail.transform.position - transform.position).normalized;
             float angle = Vector3.Angle(transform.forward, dirToNail);
             if (angle < closest)
             {
@@ -90,11 +95,11 @@ public class PlayerHammer : Player
         //look towards closest nail
         if (closestNail)
         {
-            Vector3 dirToNail = (transform.position - closestNail.transform.position).normalized;
+            Vector3 dirToNail = (closestNail.transform.position - transform.position).normalized;
             Debug.DrawRay(transform.position, dirToNail, Color.yellow, 2f);
 
             Vector3 eulerAngles = transform.eulerAngles;
-            eulerAngles.y = Mathf.Atan2(dirToNail.y, dirToNail.x) * Mathf.Rad2Deg;
+            eulerAngles.y = Mathf.Atan2(dirToNail.x, dirToNail.z) * Mathf.Rad2Deg;
             transform.eulerAngles = eulerAngles;
         }
     }

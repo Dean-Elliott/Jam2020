@@ -39,6 +39,8 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     public bool IsGrounded { get; private set; }
 
+    public bool Gravity { get; set; }
+
     /// <summary>
     /// The rigidbody attached to this player.
     /// </summary>
@@ -62,7 +64,10 @@ public class PlayerMovement : MonoBehaviour
         velocity = Vector3.Lerp(velocity, desiredVelocity, Time.fixedDeltaTime * acceleration);
         Rigidbody.velocity = velocity;
 
-        ApplyGravity();
+        if (Gravity)
+        {
+            ApplyGravity();
+        }
 
         //leave ground after this timer
         if (Time.fixedTime > nextGroundLeave)
