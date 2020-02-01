@@ -6,11 +6,15 @@ public class ToyController : MonoBehaviour
 {
     private Animator animatorComponent;
 
+    public GameObject owner;
+
     [HideInInspector]
     public float totalToyScore;
 
     public bool developerModeActive = false;
-    
+
+    public Vector3 enterPosition;
+
     private float paintAccuracy;
 
     public float bonusTimeLimit;
@@ -40,6 +44,8 @@ public class ToyController : MonoBehaviour
         {
             elapsingBonusTime = 0.0f;
         }
+
+        transform.position = enterPosition;
     }
 
     public void AddPieceScore(float pieceScore)
@@ -53,6 +59,18 @@ public class ToyController : MonoBehaviour
         animatorComponent.SetBool("ToyCompleted", true);
 
         Debug.Log("Total toy score: " + totalToyScore);
+    }
+
+    public void SetEnterPosition()
+    {
+        Debug.Log("Enter position set");
+        transform.position = enterPosition;
+    }
+
+    public void TransitionToNewToy()
+    {
+        owner.SendMessage("ActivateNewToy", SendMessageOptions.RequireReceiver);
+        gameObject.SetActive(false);
     }
 
 
