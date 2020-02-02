@@ -25,15 +25,12 @@ public class Player : MonoBehaviour
     /// <summary>
     /// Rotation that the player should be looking towards based on left stick.
     /// </summary>
-    public float Rotation
+    public float GetRotation(Vector3 stick)
     {
-        get
-        {
-            float x = LeftStick.x;
-            float y = LeftStick.y;
-            Vector3 lookDir = new Vector3(x, y).normalized;
-            return Mathf.Atan2(lookDir.x, lookDir.y) * Mathf.Rad2Deg;
-        }
+        float x = stick.x;
+        float y = stick.y;
+        Vector3 lookDir = new Vector3(x, y).normalized;
+        return Mathf.Atan2(lookDir.x, lookDir.y) * Mathf.Rad2Deg;
     }
 
     public Transform Visual => visual;
@@ -139,7 +136,7 @@ public class Player : MonoBehaviour
 
         if (CanLookAround)
         {
-            LookAround();
+            LookAround(LeftStick);
         }
 
         OnUpdate();
@@ -150,11 +147,11 @@ public class Player : MonoBehaviour
 
     }
 
-    private void LookAround()
+    public void LookAround(Vector3 stick)
     {
         //looking around
-        float x = LeftStick.x;
-        float y = LeftStick.y;
+        float x = stick.x;
+        float y = stick.y;
 
         //check if joystick looked far enough
         Vector3 lookDir = new Vector3(x, y);
