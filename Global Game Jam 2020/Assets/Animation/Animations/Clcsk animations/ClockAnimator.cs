@@ -16,7 +16,7 @@ public class ClockAnimator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        anim.SetFloat("Timer", GM.elapsingTime);
+        anim.SetFloat("IsHammering", GM.totalScore);
         
     }
 }
