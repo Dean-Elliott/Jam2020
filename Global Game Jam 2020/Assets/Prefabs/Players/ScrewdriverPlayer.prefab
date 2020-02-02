@@ -66,7 +66,7 @@ MonoBehaviour:
   accelerationFactor: 32
   decelerationFactor: 8
   gravity: 26
-  jumpHeight: 2
+  jumpHeight: 3.3
 --- !u!114 &4362340812709556553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,6 +107,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   distanceToTip: -0.37
+  radius: 1.35
 --- !u!1001 &1251907727501094433
 PrefabInstance:
   m_ObjectHideFlags: 0
