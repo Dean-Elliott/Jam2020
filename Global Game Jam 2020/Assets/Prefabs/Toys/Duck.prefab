@@ -715,7 +715,7 @@ PrefabInstance:
     - target: {fileID: 5278881394307232511, guid: 60a22129b825a2846b7fb52405f3aaeb,
         type: 3}
       propertyPath: nailedInDistance
-      value: 0.78
+      value: 1.21
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60a22129b825a2846b7fb52405f3aaeb, type: 3}
@@ -810,7 +810,7 @@ PrefabInstance:
     - target: {fileID: 5278881394307232511, guid: 60a22129b825a2846b7fb52405f3aaeb,
         type: 3}
       propertyPath: nailedInDistance
-      value: 0.78
+      value: 1.21
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60a22129b825a2846b7fb52405f3aaeb, type: 3}

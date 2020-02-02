@@ -4329,6 +4329,11 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 1613476222}
+    - target: {fileID: 158410605227906690, guid: bd7c5ad85fc484f4daf3c074600e5b6b,
+        type: 3}
+      propertyPath: developerModeActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8147896340049470846, guid: bd7c5ad85fc484f4daf3c074600e5b6b,
         type: 3}
       propertyPath: m_Name
@@ -5018,6 +5023,11 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 288537733}
+    - target: {fileID: 5426343295034430514, guid: b9872740816d8b445805e19c23507f96,
+        type: 3}
+      propertyPath: developerModeActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5527250337651615650, guid: b9872740816d8b445805e19c23507f96,
         type: 3}
       propertyPath: nailedInDistance
@@ -5512,6 +5522,11 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 1443740063}
+    - target: {fileID: 9012153682761085900, guid: 30f71a544a65eb9468512b0ba7a31f18,
+        type: 3}
+      propertyPath: developerModeActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30f71a544a65eb9468512b0ba7a31f18, type: 3}
 --- !u!4 &1796102418 stripped

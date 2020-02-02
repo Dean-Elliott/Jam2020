@@ -25,7 +25,6 @@ public class Screw : MonoBehaviour, IInteractable
 
     private Vector3 originalPosition;
     private Vector3 destinationPosition;
-    private Vector3 topPos;
 
     /// <summary>
     /// The rotation of the screw on its local Y axis.
@@ -77,8 +76,12 @@ public class Screw : MonoBehaviour, IInteractable
 
     private void Update()
     {
-        Top = transform.position - transform.up * screwedInDistance * Percentage;
         screwVisual.localPosition = Vector3.Lerp(originalPosition, destinationPosition, screwCurve.Evaluate(Percentage));
         screwVisual.localEulerAngles = new Vector3(-90f, 0.0f, Rotation);
+    }
+
+    private void LateUpdate()
+    {
+        Top = transform.position - transform.up * screwedInDistance * Percentage;
     }
 }

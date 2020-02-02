@@ -20,21 +20,37 @@ public class PlayerHammerHead : MonoBehaviour
         //too soon
         if (Time.time < nextNailIn)
         {
-            audioSource.PlayOneShot(hammerHit, 0.7F);
+            if (audioSource)
+            {
+                audioSource.PlayOneShot(hammerHit, 0.7F);
+            }
+
             return;
         }
 
-        if (Hammer.IsHammering)
+        if (!Hammer)
+        {
+            Hammer = GetComponentInParent<PlayerHammer>();
+        }
+
+        if (Hammer && Hammer.IsHammering)
         {
             Nail nail = collision.GetComponentInParent<Nail>();
             if (nail)
             {
-                audioSource.PlayOneShot(hammerHit, 0.7F);
+                if (audioSource)
+                {
+                    audioSource.PlayOneShot(hammerHit, 0.7F);
+                }
+
                 nextNailIn = Time.time + 0.25f;
                 nail.NailMeIn();
 
-                var newEffect = Instantiate(hitEffect, transform.position, Quaternion.identity);
-                Destroy(newEffect, 2f);
+                if (hitEffect)
+                {
+                    var newEffect = Instantiate(hitEffect, transform.position, Quaternion.identity);
+                    Destroy(newEffect, 2f);
+                }
             }
         }
     }
