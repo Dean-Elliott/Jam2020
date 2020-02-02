@@ -31,7 +31,25 @@ public class Screw : MonoBehaviour, IInteractable
     /// </summary>
     public float Rotation { get; set; }
 
-    public Vector3 Top => top.position;
+    /// <summary>
+    /// World position of the top of the screw.
+    /// </summary>
+    public Vector3 Top
+    {
+        get
+        {
+            return transform.position - transform.up * screwedInDistance * Percentage;
+        }
+    }
+
+    public Vector3 OriginalTop
+    {
+        get
+        {
+            return transform.TransformPoint(originalPosition);
+        }
+    }
+
     public float Percentage => progress;
     public Bounds Bounds => new Bounds(transform.position - transform.up * screwedInDistance * 0.5f, new Vector3(radius, screwedInDistance, radius));
 
