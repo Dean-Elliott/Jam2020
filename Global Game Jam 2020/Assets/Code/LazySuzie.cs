@@ -25,14 +25,14 @@ public class LazySuzie : MonoBehaviour
     {
         if (reset == true)
         {
-            Vector3 to = new Vector3(0.0f, 0.0f, 0.0f);
-            if (Vector3.Distance(transform.eulerAngles, to) > 0.01f)
+            Vector3 stopPosition = new Vector3(0.0f, 0.0f, 0.0f);
+            if (Vector3.Distance(transform.eulerAngles, stopPosition) > 0.01f)
             {
-                transform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, to, 10 * Time.deltaTime);
+                transform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, stopPosition, 10 * Time.deltaTime);
             }
             else
             {
-                transform.eulerAngles = to;
+                transform.eulerAngles = stopPosition;
                 reset = false;
             }
         }
