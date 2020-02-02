@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [HideInInspector]
+    public static int finalScore;
+
     private static GameManager instance;
 
     public Color colorRed = Color.red;
@@ -16,24 +20,48 @@ public class GameManager : MonoBehaviour
     private float totalScore;
 
     public TextMeshProUGUI totalScoreText;
-    public TextMeshProUGUI bonusTimerText;
+    public TextMeshProUGUI timerText;
 
     private ToyController toyControllerComponent;
 
     public LazySuzie lazySusan;
 
+    public float timeLimit;
+    private float elapsingTime;
+
     // Start is called before the first frame update
     void Start()
     {
+        finalScore = 0;
+
+        //DontDestroyOnLoad(gameObject);
+
         toyControllerComponent = toys[0].GetComponent<ToyController>();
+        elapsingTime = timeLimit;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (elapsingTime > 0.0f)
+        {
+            elapsingTime -= Time.deltaTime;
+        }
+        else
+        {
+            elapsingTime = 0.0f;
+        }
+
+        timerText.text = "" + System.Math.Round(elapsingTime, 2);
+
         toys[currentToy].transform.rotation = lazySusan.transform.rotation;
 
-        bonusTimerText.text = "Bonus Timer: " + System.Math.Round(toyControllerComponent.elapsingBonusTime, 2);
+        /*
+        if (timerText != null)
+        {
+            bonusTimerText.text = "Bonus Timer: " + System.Math.Round(toyControllerComponent.elapsingBonusTime, 2);
+        }
+        */
 
         //set score to the score on the toy
         if (toyControllerComponent)
@@ -44,8 +72,8 @@ public class GameManager : MonoBehaviour
         {
             totalScoreText.text = "Total Score: " + totalScore;
         }
-        bonusTimerText.text = "" + System.Math.Round(toyControllerComponent.elapsingBonusTime, 2);
-        totalScoreText.text = " " + totalScore;
+        //bonusTimerText.text = "" + System.Math.Round(toyControllerComponent.elapsingBonusTime, 2);
+        totalScoreText.text = "" + totalScore;
     }
 
     public void ActivateNewToy()
@@ -67,7 +95,15 @@ public class GameManager : MonoBehaviour
 
     public void FinishGame()
     {
+        finalScore = (int)elapsingTime * 100;
+
+        SceneManager.LoadScene("NewEndScene", LoadSceneMode.Single);
         Debug.Log("Game Finished!");
+    }
+
+    public void CompleteCurrentToy()
+    {
+
     }
 
     public static Color GetColor(ColorType colorType)
