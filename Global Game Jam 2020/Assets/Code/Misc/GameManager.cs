@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            GameOver();
             elapsingTime = 0.0f;
         }
 
@@ -74,6 +75,11 @@ public class GameManager : MonoBehaviour
         }
         //bonusTimerText.text = "" + System.Math.Round(toyControllerComponent.elapsingBonusTime, 2);
         totalScoreText.text = "" + totalScore;
+    }
+
+    public void GameOver()
+    {
+        SceneManager.LoadScene("NewEndScene", LoadSceneMode.Single);
     }
 
     public void ActivateNewToy()

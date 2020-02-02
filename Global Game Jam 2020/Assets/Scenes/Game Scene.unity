@@ -580,7 +580,7 @@ RectTransform:
   - {fileID: 637066033}
   - {fileID: 719060301}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3021,7 +3021,7 @@ PrefabInstance:
     - target: {fileID: 7605482529877254654, guid: a10920172c824704eb12ce7631d31047,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7605482529877254654, guid: a10920172c824704eb12ce7631d31047,
         type: 3}
@@ -4488,7 +4488,7 @@ PrefabInstance:
     - target: {fileID: 1376730163664863824, guid: 4971c05fe917a0642b99a3ad9d8b7a62,
         type: 3}
       propertyPath: timeLimit
-      value: 30
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 1376730163664863831, guid: 4971c05fe917a0642b99a3ad9d8b7a62,
         type: 3}
@@ -4528,7 +4528,7 @@ PrefabInstance:
     - target: {fileID: 1376730163664863831, guid: 4971c05fe917a0642b99a3ad9d8b7a62,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1376730163664863831, guid: 4971c05fe917a0642b99a3ad9d8b7a62,
         type: 3}
@@ -5501,7 +5501,7 @@ PrefabInstance:
     - target: {fileID: 2603095669438954559, guid: 1a07c4f30999b874c9dc934f5c0d7c91,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2603095669438954559, guid: 1a07c4f30999b874c9dc934f5c0d7c91,
         type: 3}
@@ -5812,7 +5812,7 @@ RectTransform:
   - {fileID: 344048012}
   - {fileID: 633847618}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6485,7 +6485,7 @@ PrefabInstance:
     - target: {fileID: 4177157967594767321, guid: f3a0c8249866c1e40901a493d2895b97,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4177157967594767321, guid: f3a0c8249866c1e40901a493d2895b97,
         type: 3}
