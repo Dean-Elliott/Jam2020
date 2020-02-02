@@ -87,7 +87,7 @@ public class PlayerScrewdriver : Player
         }
         else
         {
-            Gamepad.ResetHaptics();
+            //Gamepad.ResetHaptics();
         }
 
         //find closest screw

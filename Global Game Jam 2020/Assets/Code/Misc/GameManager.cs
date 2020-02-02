@@ -33,7 +33,10 @@ public class GameManager : MonoBehaviour
     {
         toys[currentToy].transform.rotation = lazySusan.transform.rotation;
 
-        bonusTimerText.text = "Bonus Timer: " + System.Math.Round(toyControllerComponent.elapsingBonusTime, 2);
+        if (bonusTimerText != null)
+        {
+            //bonusTimerText.text = "Bonus Timer: " + System.Math.Round(toyControllerComponent.elapsingBonusTime, 2);
+        }
 
         //set score to the score on the toy
         if (toyControllerComponent)
@@ -44,7 +47,7 @@ public class GameManager : MonoBehaviour
         {
             totalScoreText.text = "Total Score: " + totalScore;
         }
-        bonusTimerText.text = "" + System.Math.Round(toyControllerComponent.elapsingBonusTime, 2);
+        //bonusTimerText.text = "" + System.Math.Round(toyControllerComponent.elapsingBonusTime, 2);
         totalScoreText.text = " " + totalScore;
     }
 
@@ -68,6 +71,11 @@ public class GameManager : MonoBehaviour
     public void FinishGame()
     {
         Debug.Log("Game Finished!");
+    }
+
+    public void CompleteCurrentToy()
+    {
+        toyControllerComponent.ToyCompleted();
     }
 
     public static Color GetColor(ColorType colorType)
