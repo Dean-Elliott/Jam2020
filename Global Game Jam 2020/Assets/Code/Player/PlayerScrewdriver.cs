@@ -47,7 +47,7 @@ public class PlayerScrewdriver : Player
             if (t > 0.5f)
             {
                 //go towards thingy
-                transform.position = Vector3.Lerp(middlePosition, closeScrew.transform.position + closeScrew.transform.up * distanceToTip, (t - 0.5f) * 2f);
+                transform.position = Vector3.Lerp(middlePosition, closeScrew.Top + closeScrew.transform.up * distanceToTip, (t - 0.5f) * 2f);
             }
             else
             {
@@ -63,11 +63,15 @@ public class PlayerScrewdriver : Player
                 closeScrew.ScrewIn(amount);
                 if (closeScrew.Percentage < 1f)
                 {
-                    closeScrew.Rotation = transform.eulerAngles.y;
+                    closeScrew.Rotation = Rotation;
                 }
 
                 Gamepad.SetMotorSpeeds(0f, amount * 3f);
             }
+
+            Quaternion oiler = closeScrew.transform.rotation;
+            transform.rotation = oiler;
+            Visual.localEulerAngles = new Vector3(0f, Rotation, 0f);
 
             //released the left trigger
             if (Trigger < 0.2f)
@@ -75,6 +79,8 @@ public class PlayerScrewdriver : Player
                 IsScrewingIn = false;
                 CanMove = true;
                 closeScrew = null;
+                transform.eulerAngles = new Vector3(0f, 0f, 0f);
+                Visual.localEulerAngles = Vector3.zero;
             }
 
             return;
@@ -95,7 +101,7 @@ public class PlayerScrewdriver : Player
             originalPosition = transform.position;
 
             //get middle pos by doing avg of 2 positions + half angle of driver to screw
-            middlePosition = (closeScrew.transform.position + originalPosition) * 0.5f;
+            middlePosition = (closeScrew.Top + originalPosition) * 0.5f;
             middlePosition += transform.up + closeScrew.transform.up;
         }
     }
@@ -105,11 +111,10 @@ public class PlayerScrewdriver : Player
         Screw[] screws = FindObjectsOfType<Screw>();
         float closestDistance = float.MaxValue;
         Screw closestScrew = null;
-        Bounds bounds = new Bounds(transform.position, boundsSizes);
         foreach (Screw screw in screws)
         {
-            float dist = (screw.transform.position - transform.position).sqrMagnitude;
-            if (dist < closestDistance && screw.Bounds.Intersects(bounds))
+            float dist = (screw.Top - transform.position).sqrMagnitude;
+            if (dist < closestDistance && dist < 1f * 1f)
             {
                 closestDistance = dist;
                 closestScrew = screw;
