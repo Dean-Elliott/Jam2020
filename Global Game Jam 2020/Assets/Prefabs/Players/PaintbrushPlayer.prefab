@@ -81,6 +81,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   visual: {fileID: 8276452665692426719}
+  paintBrushRadius: 0.69
   paintMaterial: {fileID: 5596651175626585437, guid: 4a670bbf8c83a984a8e16b931431153d,
     type: 3}
   invert: 0
@@ -102,17 +103,17 @@ PrefabInstance:
     - target: {fileID: 8668412442700304271, guid: 555531b70a865094c96e000e0f4828a2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.35
       objectReference: {fileID: 0}
     - target: {fileID: 8668412442700304271, guid: 555531b70a865094c96e000e0f4828a2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -2.63
       objectReference: {fileID: 0}
     - target: {fileID: 8668412442700304271, guid: 555531b70a865094c96e000e0f4828a2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1.18
       objectReference: {fileID: 0}
     - target: {fileID: 8668412442700304271, guid: 555531b70a865094c96e000e0f4828a2,
         type: 3}
@@ -153,6 +154,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8754869804292847954, guid: 555531b70a865094c96e000e0f4828a2,
+        type: 3}
+      propertyPath: m_Height
+      value: 0.35398427
+      objectReference: {fileID: 0}
+    - target: {fileID: 8754869804292847954, guid: 555531b70a865094c96e000e0f4828a2,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 1.8277945e-18
+      objectReference: {fileID: 0}
+    - target: {fileID: 8754869804292847954, guid: 555531b70a865094c96e000e0f4828a2,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.17625548
+      objectReference: {fileID: 0}
+    - target: {fileID: 8754869804292847954, guid: 555531b70a865094c96e000e0f4828a2,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.0006550046
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 555531b70a865094c96e000e0f4828a2, type: 3}
