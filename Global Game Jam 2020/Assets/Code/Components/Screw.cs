@@ -3,7 +3,7 @@
 public class Screw : MonoBehaviour, IInteractable
 {
     [SerializeField, Range(0f, 1f)]
-    private float progress = 0f;
+    public float progress = 0f;
 
     [SerializeField]
     private float screwInSpeed = 1f;
