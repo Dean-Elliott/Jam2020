@@ -6,7 +6,7 @@ public class Nail : MonoBehaviour, IInteractable
     public int nailInStage = 0;
 
     [SerializeField]
-    private int maxNailInStage = 2;
+    public int maxNailInStage = 2;
 
     [SerializeField]
     private float nailedInDistance = 1f;
@@ -25,7 +25,7 @@ public class Nail : MonoBehaviour, IInteractable
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position - transform.up * nailedInDistance * Percentage, 0.25f);
     }
-    
+
     public void NailMeIn()
     {
         nailInStage++;

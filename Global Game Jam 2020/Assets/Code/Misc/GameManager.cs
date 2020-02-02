@@ -5,6 +5,9 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    [HideInInspector]
+    public static int finalScore;
+
     private static GameManager instance;
 
     public Color colorRed = Color.red;
@@ -28,6 +31,10 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        finalScore = 0;
+
+        //DontDestroyOnLoad(gameObject);
+
         toyControllerComponent = toys[0].GetComponent<ToyController>();
         elapsingTime = timeLimit;
     }
@@ -35,7 +42,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (elapsingTime > 0.0f)
         {
             elapsingTime -= Time.deltaTime;
@@ -66,7 +72,7 @@ public class GameManager : MonoBehaviour
             totalScoreText.text = "Total Score: " + totalScore;
         }
         //bonusTimerText.text = "" + System.Math.Round(toyControllerComponent.elapsingBonusTime, 2);
-        totalScoreText.text = " " + totalScore;
+        totalScoreText.text = "" + totalScore;
     }
 
     public void ActivateNewToy()
@@ -93,7 +99,7 @@ public class GameManager : MonoBehaviour
 
     public void CompleteCurrentToy()
     {
-        toyControllerComponent.ToyCompleted();
+        elapsingTime = finalScore * 100;
     }
 
     public static Color GetColor(ColorType colorType)
