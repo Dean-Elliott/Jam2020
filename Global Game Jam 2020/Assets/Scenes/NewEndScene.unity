@@ -407,6 +407,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5190520294570092077, guid: 0c2f1dadb5cf937498b5a70978b3e26b,
+        type: 3}
+      propertyPath: screwedInDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6973183599832433400, guid: 0c2f1dadb5cf937498b5a70978b3e26b,
         type: 3}
       propertyPath: m_Name
@@ -466,11 +471,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5190520294570092077, guid: 0c2f1dadb5cf937498b5a70978b3e26b,
-        type: 3}
-      propertyPath: screwedInDistance
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c2f1dadb5cf937498b5a70978b3e26b, type: 3}
@@ -573,11 +573,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 6684a2b31b68dc24d86c3ce04e0bd6a7,
-        type: 3}
-      propertyPath: m_Name
-      value: Review_Pad
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 6684a2b31b68dc24d86c3ce04e0bd6a7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -653,6 +648,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c673204b979cad44f9d6aaa4e2027e8e, type: 2}
+    - target: {fileID: -927199367670048503, guid: 6684a2b31b68dc24d86c3ce04e0bd6a7,
+        type: 3}
+      propertyPath: m_Name
+      value: Review_Pad
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6684a2b31b68dc24d86c3ce04e0bd6a7, type: 3}
 --- !u!1 &620697884
@@ -747,7 +747,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 636989045}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 758197684}
@@ -755,7 +755,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.21, y: 4.9}
+  m_AnchoredPosition: {x: -0.78, y: 5.09}
   m_SizeDelta: {x: 46.93, y: 13.76}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &636989047
@@ -776,14 +776,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: 'Final Score
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 514a7f76a02af3d43b6359d6584a9762, type: 2}
+  m_sharedMaterial: {fileID: 7931974977892897042, guid: 514a7f76a02af3d43b6359d6584a9762,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -808,13 +807,13 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 1
-  m_fontSizeBase: 1
+  m_fontSize: 3
+  m_fontSizeBase: 3
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_textAlignment: 514
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1177,8 +1176,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: TOTAL TIME
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1213,7 +1210,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_textAlignment: 257
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1375,11 +1372,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: d695e46996a883947b643f11489a2614,
-        type: 3}
-      propertyPath: m_Name
-      value: workbench
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d695e46996a883947b643f11489a2614,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1444,6 +1436,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 2.5697105
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d695e46996a883947b643f11489a2614,
+        type: 3}
+      propertyPath: m_Name
+      value: workbench
       objectReference: {fileID: 0}
     - target: {fileID: -113181020801827196, guid: d695e46996a883947b643f11489a2614,
         type: 3}
@@ -1512,8 +1509,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: EXIT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 514a7f76a02af3d43b6359d6584a9762, type: 2}
@@ -1670,8 +1665,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: PLAY AGAIN
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 514a7f76a02af3d43b6359d6584a9762, type: 2}
@@ -2076,7 +2069,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screw: {fileID: 1797006015}
   nail: {fileID: 230650974}
-  onScene: 1
 --- !u!4 &1654914507
 Transform:
   m_ObjectHideFlags: 0
@@ -2104,11 +2096,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3643939888800088442, guid: 1a07c4f30999b874c9dc934f5c0d7c91,
-        type: 3}
-      propertyPath: m_Name
-      value: ScrewdriverPlayer
-      objectReference: {fileID: 0}
     - target: {fileID: 2603095669438954559, guid: 1a07c4f30999b874c9dc934f5c0d7c91,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2164,6 +2151,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3643939888800088442, guid: 1a07c4f30999b874c9dc934f5c0d7c91,
+        type: 3}
+      propertyPath: m_Name
+      value: ScrewdriverPlayer
+      objectReference: {fileID: 0}
     - target: {fileID: 4362340812709556553, guid: 1a07c4f30999b874c9dc934f5c0d7c91,
         type: 3}
       propertyPath: id
@@ -2178,11 +2170,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 9108797769723759202, guid: e71abc8e23ab73c4ab582fe38b73891a,
-        type: 3}
-      propertyPath: m_Name
-      value: HammerPlayer
-      objectReference: {fileID: 0}
     - target: {fileID: 7555103875306043175, guid: e71abc8e23ab73c4ab582fe38b73891a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2242,6 +2229,11 @@ PrefabInstance:
         type: 3}
       propertyPath: id
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9108797769723759202, guid: e71abc8e23ab73c4ab582fe38b73891a,
+        type: 3}
+      propertyPath: m_Name
+      value: HammerPlayer
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e71abc8e23ab73c4ab582fe38b73891a, type: 3}

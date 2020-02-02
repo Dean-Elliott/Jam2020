@@ -218,8 +218,10 @@ MonoBehaviour:
   totalToyScore: 0
   developerModeActive: 1
   enterPosition: {x: 0, y: 0, z: 0}
-  bonusTimeLimit: 20
   elapsingBonusTime: 0
+  audioSource: {fileID: 0}
+  shoot: []
+  shootClip: {fileID: 0}
 --- !u!95 &322936568887017064
 Animator:
   serializedVersion: 3
@@ -452,7 +454,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 670224309865224971, guid: bc90f6459fb9b984297ad35deaa3f8b1, type: 3}
+  - {fileID: 2100000, guid: 0247a36f0a073e44abf0098b622098bd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
