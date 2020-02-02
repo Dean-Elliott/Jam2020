@@ -140,6 +140,15 @@ public class Player : MonoBehaviour
         }
 
         OnUpdate();
+
+        //check if player is on screen
+        Vector2 screenPoint = Camera.main.WorldToViewportPoint(transform.position);
+        if (screenPoint.x < -0.1f || screenPoint.x > 1.1f || screenPoint.y < -0.1f || screenPoint.y > 1.1f || transform.position.y < -2f)
+        {
+            //is oob
+            transform.position = new Vector3(0f, 10f, 0f);
+            Movement.Rigidbody.velocity = Vector3.zero;
+        }
     }
 
     protected virtual void OnUpdate()
