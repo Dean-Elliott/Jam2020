@@ -79,7 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a19bbda4cac936f49939e41497a3ae1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 1
   visual: {fileID: 9040916189249394554}
   animationDuration: 0.2
   positionCurve:
@@ -114,10 +114,35 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2603095669438954559}
     m_Modifications:
+    - target: {fileID: 464456642001489028, guid: 4796e46a82b493a4cbffb21a959a0128,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.251
+      objectReference: {fileID: 0}
     - target: {fileID: 2674364212066237437, guid: 4796e46a82b493a4cbffb21a959a0128,
         type: 3}
       propertyPath: m_Name
       value: Screwdriver
+      objectReference: {fileID: 0}
+    - target: {fileID: 3635404068245166716, guid: 4796e46a82b493a4cbffb21a959a0128,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4015457443998026417, guid: 4796e46a82b493a4cbffb21a959a0128,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4015457443998026417, guid: 4796e46a82b493a4cbffb21a959a0128,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4015457443998026417, guid: 4796e46a82b493a4cbffb21a959a0128,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7793587106702244187, guid: 4796e46a82b493a4cbffb21a959a0128,
         type: 3}
