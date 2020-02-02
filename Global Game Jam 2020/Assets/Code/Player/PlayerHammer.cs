@@ -17,7 +17,7 @@ public class PlayerHammer : Player
     private AnimationCurve hammerSwingCurve = new AnimationCurve();
 
     private float animationTime;
-    private bool wasPullingBack;
+    public bool wasPullingBack;
 
     public bool IsHammering { get; private set; }
 

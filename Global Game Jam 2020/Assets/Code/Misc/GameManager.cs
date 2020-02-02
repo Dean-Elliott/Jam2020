@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public GameObject[] toys;
     private int currentToy = 0;
 
-    private float totalScore;
+    public float totalScore;
 
     public TextMeshProUGUI totalScoreText;
     public TextMeshProUGUI timerText;
