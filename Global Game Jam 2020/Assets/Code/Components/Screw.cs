@@ -15,6 +15,9 @@ public class Screw : MonoBehaviour, IInteractable
     private float screwedInDistance = 1f;
 
     [SerializeField]
+    private Transform top;
+
+    [SerializeField]
     private AnimationCurve screwCurve = new AnimationCurve();
 
     private Vector3 originalPosition;
@@ -24,6 +27,7 @@ public class Screw : MonoBehaviour, IInteractable
     /// </summary>
     public float Rotation { get; set; }
 
+    public Vector3 Top => top.position;
     public float Percentage => progress;
     public Bounds Bounds => new Bounds(transform.position - transform.up * screwedInDistance * 0.5f, new Vector3(radius, screwedInDistance, radius));
 

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ToyController : MonoBehaviour
@@ -22,11 +23,15 @@ public class ToyController : MonoBehaviour
     [HideInInspector]
     public float elapsingBonusTime;
 
+    private List<IInteractable> parts = new List<IInteractable>();
+
     // Start is called before the first frame update
     void Start()
     {
         animatorComponent = gameObject.GetComponent<Animator>();
         elapsingBonusTime = bonusTimeLimit;
+
+        parts = GetComponentsInChildren<IInteractable>().ToList();
     }
 
     // Update is called once per frame
@@ -45,6 +50,24 @@ public class ToyController : MonoBehaviour
         }
 
         transform.position = enterPosition;
+
+        //check when a part is 100% donesies
+        float percentage = 0f;
+        for (int i = parts.Count - 1; i >= 0; i--)
+        {
+            IInteractable part = parts[i];
+            percentage += part.Percentage;
+
+            //if (part.Percentage == 1f)
+            //{
+            //    //part reached 100
+            //    //add score and removeth from list
+            //    parts.RemoveAt(i);
+            //    AddPieceScore(1f);
+            //}
+        }
+
+        percentage /= parts.Count;
     }
 
     public void AddPieceScore(float pieceScore)
