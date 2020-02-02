@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField]
+    private bool isStartScreen = true;
+
     [HideInInspector]
     public static int finalScore;
 
@@ -36,25 +39,33 @@ public class GameManager : MonoBehaviour
 
         //DontDestroyOnLoad(gameObject);
 
-        toyControllerComponent = toys[0].GetComponent<ToyController>();
+        if (isStartScreen == false)
+        {
+            toyControllerComponent = toys[0].GetComponent<ToyController>();
+        }
         elapsingTime = timeLimit;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (elapsingTime > 0.0f)
+        if (isStartScreen == false)
         {
-            elapsingTime -= Time.deltaTime;
-        }
-        else
-        {
-            GameOver();
-            elapsingTime = 0.0f;
+            if (elapsingTime > 0.0f)
+            {
+                elapsingTime -= Time.deltaTime;
+            }
+            else
+            {
+                GameOver();
+                elapsingTime = 0.0f;
+            }
         }
 
+        if(isStartScreen == false)
         timerText.text = "" + System.Math.Round(elapsingTime, 2);
 
+        if(isStartScreen == false)
         toys[currentToy].transform.rotation = lazySusan.transform.rotation;
 
         /*

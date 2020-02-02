@@ -120,10 +120,16 @@ public class PlayerScrewdriver : Player
     {
         Screw[] screws = FindObjectsOfType<Screw>();
         float closestDistance = float.MaxValue;
+        Vector3 tip = transform.position - transform.up * distanceToTip;
         Screw closestScrew = null;
         foreach (Screw screw in screws)
         {
-            float dist = (screw.Top - transform.position).sqrMagnitude;
+            Vector3 topOfTheScrew = screw.Top;
+            Debug.DrawLine(topOfTheScrew, tip, Color.red, 0.1f);
+            Debug.DrawRay(topOfTheScrew, Vector3.up, Color.cyan, 0.1f);
+            Debug.DrawRay(tip, Vector3.up, Color.yellow, 0.1f);
+
+            float dist = (topOfTheScrew - tip).sqrMagnitude;
             if (dist < closestDistance && dist < radius * radius)
             {
                 closestDistance = dist;

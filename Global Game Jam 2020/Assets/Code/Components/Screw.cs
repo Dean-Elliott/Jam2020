@@ -25,6 +25,7 @@ public class Screw : MonoBehaviour, IInteractable
 
     private Vector3 originalPosition;
     private Vector3 destinationPosition;
+    private Vector3 topPos;
 
     /// <summary>
     /// The rotation of the screw on its local Y axis.
@@ -34,13 +35,7 @@ public class Screw : MonoBehaviour, IInteractable
     /// <summary>
     /// World position of the top of the screw.
     /// </summary>
-    public Vector3 Top
-    {
-        get
-        {
-            return transform.position - transform.up * screwedInDistance * Percentage;
-        }
-    }
+    public Vector3 Top { get; private set; }
 
     public Vector3 OriginalTop
     {
@@ -60,7 +55,7 @@ public class Screw : MonoBehaviour, IInteractable
         Gizmos.DrawWireSphere(transform.position - transform.up * screwedInDistance, 0.25f);
 
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position - transform.up * screwedInDistance * Percentage, 0.25f);
+        Gizmos.DrawWireSphere(Top, 0.25f);
 
         Gizmos.DrawWireCube(transform.position - transform.up * screwedInDistance * 0.5f, new Vector3(radius, screwedInDistance, radius));
     }
@@ -82,6 +77,7 @@ public class Screw : MonoBehaviour, IInteractable
 
     private void Update()
     {
+        Top = transform.position - transform.up * screwedInDistance * Percentage;
         screwVisual.localPosition = Vector3.Lerp(originalPosition, destinationPosition, screwCurve.Evaluate(Percentage));
         screwVisual.localEulerAngles = new Vector3(-90f, 0.0f, Rotation);
     }

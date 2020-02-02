@@ -3754,6 +3754,21 @@ PrefabInstance:
       propertyPath: bonusTimerText
       value: 
       objectReference: {fileID: 218626815}
+    - target: {fileID: 1376730163664863824, guid: 4971c05fe917a0642b99a3ad9d8b7a62,
+        type: 3}
+      propertyPath: timeLimit
+      value: 1e+11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1376730163664863824, guid: 4971c05fe917a0642b99a3ad9d8b7a62,
+        type: 3}
+      propertyPath: elapsingTime
+      value: 1e+19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1376730163664863824, guid: 4971c05fe917a0642b99a3ad9d8b7a62,
+        type: 3}
+      propertyPath: isStartScreen
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1376730163664863831, guid: 4971c05fe917a0642b99a3ad9d8b7a62,
         type: 3}
       propertyPath: m_LocalPosition.x
