@@ -3,7 +3,7 @@
 public class Nail : MonoBehaviour, IInteractable
 {
     [SerializeField]
-    private int nailInStage = 0;
+    public int nailInStage = 0;
 
     [SerializeField]
     private int maxNailInStage = 2;
