@@ -25,6 +25,10 @@ public class ToyController : MonoBehaviour
     private List<IInteractable> parts = new List<IInteractable>();
     private bool isCompleted;
 
+    public AudioSource audioSource;
+    public AudioClip[] shoot;
+    public AudioClip shootClip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +55,8 @@ public class ToyController : MonoBehaviour
 
         transform.position = enterPosition;
 
+
+
         //calculate total score
         if (!isCompleted)
         {
@@ -59,11 +65,21 @@ public class ToyController : MonoBehaviour
             {
                 totalToyScore += part.Percentage;
             }
+
+            if (totalToyScore == parts.Count)
+            {
+                ToyCompleted();
+            }
         }
     }
 
     public void ToyCompleted()
     {
+        int index = Random.Range(0, shoot.Length);
+        shootClip = shoot[index];
+        audioSource.clip = shootClip;
+        audioSource.Play();
+
         isCompleted = true;
         //totalToyScore += (float)System.Math.Round(elapsingBonusTime, 0) + paintAccuracy;
         animatorComponent.SetBool("ToyCompleted", true);

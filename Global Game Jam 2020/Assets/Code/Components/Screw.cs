@@ -23,12 +23,33 @@ public class Screw : MonoBehaviour, IInteractable
     [SerializeField]
     private AnimationCurve screwCurve = new AnimationCurve();
 
+    private Vector3 originalPosition;
+    private Vector3 destinationPosition;
+
     /// <summary>
     /// The rotation of the screw on its local Y axis.
     /// </summary>
     public float Rotation { get; set; }
 
-    public Vector3 Top => top.position;
+    /// <summary>
+    /// World position of the top of the screw.
+    /// </summary>
+    public Vector3 Top
+    {
+        get
+        {
+            return transform.position - transform.up * screwedInDistance * Percentage;
+        }
+    }
+
+    public Vector3 OriginalTop
+    {
+        get
+        {
+            return transform.TransformPoint(originalPosition);
+        }
+    }
+
     public float Percentage => progress;
     public Bounds Bounds => new Bounds(transform.position - transform.up * screwedInDistance * 0.5f, new Vector3(radius, screwedInDistance, radius));
 
@@ -44,6 +65,12 @@ public class Screw : MonoBehaviour, IInteractable
         Gizmos.DrawWireCube(transform.position - transform.up * screwedInDistance * 0.5f, new Vector3(radius, screwedInDistance, radius));
     }
 
+    private void Awake()
+    {
+        originalPosition = screwVisual.localPosition;
+        destinationPosition = screwVisual.localPosition + Vector3.down * screwedInDistance;
+    }
+
     public void ScrewIn(float amount)
     {
         progress += amount * screwInSpeed * Time.deltaTime;
@@ -55,8 +82,7 @@ public class Screw : MonoBehaviour, IInteractable
 
     private void Update()
     {
-        Vector3 nailedInPosition = Vector3.down * screwedInDistance;
-        screwVisual.localPosition = Vector3.Lerp(Vector3.zero, nailedInPosition, screwCurve.Evaluate(Percentage));
+        screwVisual.localPosition = Vector3.Lerp(originalPosition, destinationPosition, screwCurve.Evaluate(Percentage));
         screwVisual.localEulerAngles = new Vector3(-90f, 0.0f, Rotation);
     }
 }

@@ -6,13 +6,16 @@ public class Nail : MonoBehaviour, IInteractable
     public int nailInStage = 0;
 
     [SerializeField]
-    private int maxNailInStage = 2;
+    public int maxNailInStage = 2;
 
     [SerializeField]
     private float nailedInDistance = 1f;
 
     [SerializeField]
     private Transform visual;
+
+    [SerializeField]
+    private AnimationCurve distanceOverProgress = new AnimationCurve();
 
     public float Percentage => Mathf.Clamp01(nailInStage / (float)maxNailInStage);
 
@@ -25,7 +28,7 @@ public class Nail : MonoBehaviour, IInteractable
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position - transform.up * nailedInDistance * Percentage, 0.25f);
     }
-    
+
     public void NailMeIn()
     {
         nailInStage++;
@@ -38,6 +41,6 @@ public class Nail : MonoBehaviour, IInteractable
     private void Update()
     {
         Vector3 nailedInPosition = Vector3.down * nailedInDistance;
-        visual.localPosition = Vector3.Lerp(Vector3.zero, nailedInPosition, Percentage);
+        visual.localPosition = Vector3.Lerp(Vector3.zero, nailedInPosition, distanceOverProgress.Evaluate(Percentage));
     }
 }

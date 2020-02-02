@@ -9,7 +9,6 @@ public class SceneTransition : MonoBehaviour
 
     public GameObject screw;
     public GameObject nail;
-    
 
     // Start is called before the first frame update
     void Start()
@@ -20,10 +19,18 @@ public class SceneTransition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (nail.GetComponent<Nail>().nailInStage == 2 && screw.GetComponent<Screw>().progress == 1f)
+
+        if (screw.GetComponent<Screw>().progress == 1f)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            SceneManager.LoadScene(0);
         }
+
+        if (nail.GetComponent<Nail>().nailInStage == 2 )
+        {
+            Application.Quit();
+        }
+
+
 
     }
 

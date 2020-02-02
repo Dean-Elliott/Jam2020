@@ -11,6 +11,9 @@ public class PlayerScrewdriver : Player
     [SerializeField]
     private float distanceToTip = 1f;
 
+    [SerializeField]
+    private float radius = 1.35f;
+
     private Vector3 originalPosition;
     private Vector3 middlePosition;
     private float screwingTime;
@@ -35,13 +38,14 @@ public class PlayerScrewdriver : Player
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position - transform.up * distanceToTip, 0.8f);
+        Gizmos.DrawWireSphere(transform.position - transform.up * distanceToTip, radius);
     }
 
     protected override void OnUpdate()
     {
         if (IsScrewingIn)
         {
+            CanLookAround = false;
             screwingTime += Time.deltaTime;
             float t = positionCurve.Evaluate(Mathf.Clamp01(screwingTime / animationDuration));
             if (t > 0.5f)
@@ -58,36 +62,41 @@ public class PlayerScrewdriver : Player
             //come on, screw it
             if (t >= 1f)
             {
-                float amount = (LeftStick - lastStickDir).magnitude;
-                lastStickDir = LeftStick;
+                float amount = (RightStick - lastStickDir).magnitude;
+                lastStickDir = RightStick;
                 closeScrew.ScrewIn(amount);
                 if (closeScrew.Percentage < 1f)
                 {
-                    closeScrew.Rotation = Rotation;
+                    Quaternion oiler = closeScrew.transform.rotation;
+                    transform.rotation = oiler;
+                    Visual.localEulerAngles = new Vector3(0f, GetRotation(RightStick), 0f);
+
+                    closeScrew.Rotation = GetRotation(RightStick);
+                    Gamepad.SetMotorSpeeds(0f, amount * 0.5f);
                 }
-
-                Gamepad.SetMotorSpeeds(0f, amount * 3f);
+                else
+                {
+                    Gamepad.SetMotorSpeeds(amount, amount * 5f);
+                }
             }
-
-            Quaternion oiler = closeScrew.transform.rotation;
-            transform.rotation = oiler;
-            Visual.localEulerAngles = new Vector3(0f, Rotation, 0f);
 
             //released the left trigger
             if (Trigger < 0.2f)
             {
                 IsScrewingIn = false;
                 CanMove = true;
-                closeScrew = null;
+                CanLookAround = true;
                 transform.eulerAngles = new Vector3(0f, 0f, 0f);
-                Visual.localEulerAngles = Vector3.zero;
+                Visual.localEulerAngles = new Vector3(0f, -90f, 0f);
+                transform.position = closeScrew.OriginalTop + closeScrew.transform.up * (distanceToTip + 1f);
+                closeScrew = null;
             }
 
             return;
         }
         else
         {
-            //Gamepad.ResetHaptics();
+            Gamepad?.ResetHaptics();
         }
 
         //find closest screw
@@ -97,7 +106,8 @@ public class PlayerScrewdriver : Player
             screwingTime = 0f;
             IsScrewingIn = true;
             CanMove = false;
-            lastStickDir = LeftStick;
+            CanLookAround = false;
+            lastStickDir = RightStick;
             originalPosition = transform.position;
 
             //get middle pos by doing avg of 2 positions + half angle of driver to screw
@@ -114,7 +124,7 @@ public class PlayerScrewdriver : Player
         foreach (Screw screw in screws)
         {
             float dist = (screw.Top - transform.position).sqrMagnitude;
-            if (dist < closestDistance && dist < 1f * 1f)
+            if (dist < closestDistance && dist < radius * radius)
             {
                 closestDistance = dist;
                 closestScrew = screw;
