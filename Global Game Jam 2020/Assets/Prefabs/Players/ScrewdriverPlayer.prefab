@@ -106,7 +106,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  distanceToTip: 0.78
+  distanceToTip: 0.87
 --- !u!1001 &1251907727501094433
 PrefabInstance:
   m_ObjectHideFlags: 0
