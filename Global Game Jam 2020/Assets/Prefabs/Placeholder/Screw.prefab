@@ -175,6 +175,7 @@ MonoBehaviour:
   radius: 0.5
   screwedInDistance: 1.49
   top: {fileID: 4308707900082616525}
+  screwVisual: {fileID: 6852756568132665649}
   screwCurve:
     serializedVersion: 2
     m_Curve:

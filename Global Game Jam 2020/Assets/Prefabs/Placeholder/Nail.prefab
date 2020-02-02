@@ -156,6 +156,7 @@ MonoBehaviour:
   nailInStage: 0
   maxNailInStage: 2
   nailedInDistance: 1.49
+  visual: {fileID: 3455238983992164913}
 --- !u!1 &5278881394603115771
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,17 +270,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 6c395cdeb6e3d414291b5c9477fa29f9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 6c395cdeb6e3d414291b5c9477fa29f9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.142
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 6c395cdeb6e3d414291b5c9477fa29f9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 6c395cdeb6e3d414291b5c9477fa29f9,
         type: 3}

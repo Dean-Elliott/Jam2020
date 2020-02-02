@@ -18,9 +18,10 @@ public class Screw : MonoBehaviour, IInteractable
     private Transform top;
 
     [SerializeField]
-    private AnimationCurve screwCurve = new AnimationCurve();
+    private Transform screwVisual;
 
-    private Vector3 originalPosition;
+    [SerializeField]
+    private AnimationCurve screwCurve = new AnimationCurve();
 
     /// <summary>
     /// The rotation of the screw on its local Y axis.
@@ -43,11 +44,6 @@ public class Screw : MonoBehaviour, IInteractable
         Gizmos.DrawWireCube(transform.position - transform.up * screwedInDistance * 0.5f, new Vector3(radius, screwedInDistance, radius));
     }
 
-    private void Awake()
-    {
-        originalPosition = transform.localPosition;
-    }
-
     public void ScrewIn(float amount)
     {
         progress += amount * screwInSpeed * Time.deltaTime;
@@ -59,8 +55,8 @@ public class Screw : MonoBehaviour, IInteractable
 
     private void Update()
     {
-        Vector3 nailedInPosition = originalPosition - transform.up * screwedInDistance;
-        transform.localPosition = Vector3.Lerp(originalPosition, nailedInPosition, screwCurve.Evaluate(Percentage));
-        transform.localEulerAngles = new Vector3(0f, Rotation, 0f);
+        Vector3 nailedInPosition = Vector3.down * screwedInDistance;
+        screwVisual.localPosition = Vector3.Lerp(Vector3.zero, nailedInPosition, screwCurve.Evaluate(Percentage));
+        screwVisual.localEulerAngles = new Vector3(-90f, 0.0f, Rotation);
     }
 }
