@@ -6,8 +6,8 @@ public class PlayerHammerHead : MonoBehaviour
 
     public AudioClip hammerHit;
     AudioSource audioSource;
-
     private float nextNailIn;
+    public GameObject hitEffect;
 
     private void Awake()
     {
@@ -32,6 +32,9 @@ public class PlayerHammerHead : MonoBehaviour
                 audioSource.PlayOneShot(hammerHit, 0.7F);
                 nextNailIn = Time.time + 0.25f;
                 nail.NailMeIn();
+
+                var newEffect = Instantiate(hitEffect, transform.position, Quaternion.identity);
+                Destroy(newEffect, 2f);
             }
         }
     }
