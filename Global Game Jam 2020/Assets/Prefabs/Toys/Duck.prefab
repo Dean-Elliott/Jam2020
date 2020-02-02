@@ -491,7 +491,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4792184403436817962
 Transform:
   m_ObjectHideFlags: 0
@@ -529,8 +529,10 @@ MonoBehaviour:
   totalToyScore: 0
   developerModeActive: 1
   enterPosition: {x: 0, y: 0, z: 0}
-  bonusTimeLimit: 20
   elapsingBonusTime: 0
+  audioSource: {fileID: 0}
+  shoot: []
+  shootClip: {fileID: 0}
 --- !u!95 &6988302557849722074
 Animator:
   serializedVersion: 3
@@ -710,6 +712,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.68653774
       objectReference: {fileID: 0}
+    - target: {fileID: 5278881394307232511, guid: 60a22129b825a2846b7fb52405f3aaeb,
+        type: 3}
+      propertyPath: nailedInDistance
+      value: 0.78
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60a22129b825a2846b7fb52405f3aaeb, type: 3}
 --- !u!4 &6183486959458248705 stripped
@@ -799,6 +806,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.6865383
+      objectReference: {fileID: 0}
+    - target: {fileID: 5278881394307232511, guid: 60a22129b825a2846b7fb52405f3aaeb,
+        type: 3}
+      propertyPath: nailedInDistance
+      value: 0.78
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60a22129b825a2846b7fb52405f3aaeb, type: 3}
@@ -890,6 +902,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.61623806
       objectReference: {fileID: 0}
+    - target: {fileID: 5190520294570092077, guid: 0c2f1dadb5cf937498b5a70978b3e26b,
+        type: 3}
+      propertyPath: screwedInDistance
+      value: 0.69
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c2f1dadb5cf937498b5a70978b3e26b, type: 3}
 --- !u!4 &8959853741954231356 stripped
@@ -979,6 +996,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.61623836
+      objectReference: {fileID: 0}
+    - target: {fileID: 5190520294570092077, guid: 0c2f1dadb5cf937498b5a70978b3e26b,
+        type: 3}
+      propertyPath: screwedInDistance
+      value: 0.69
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c2f1dadb5cf937498b5a70978b3e26b, type: 3}
@@ -1070,6 +1092,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.61623806
       objectReference: {fileID: 0}
+    - target: {fileID: 5190520294570092077, guid: 0c2f1dadb5cf937498b5a70978b3e26b,
+        type: 3}
+      propertyPath: screwedInDistance
+      value: 0.69
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c2f1dadb5cf937498b5a70978b3e26b, type: 3}
 --- !u!4 &8959853740751806851 stripped
@@ -1159,6 +1186,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.61623836
+      objectReference: {fileID: 0}
+    - target: {fileID: 5190520294570092077, guid: 0c2f1dadb5cf937498b5a70978b3e26b,
+        type: 3}
+      propertyPath: screwedInDistance
+      value: 0.69
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c2f1dadb5cf937498b5a70978b3e26b, type: 3}

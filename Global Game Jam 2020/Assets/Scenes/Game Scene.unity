@@ -2893,6 +2893,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Block
       objectReference: {fileID: 0}
+    - target: {fileID: 158410605227906701, guid: bd7c5ad85fc484f4daf3c074600e5b6b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 158410605227906700, guid: bd7c5ad85fc484f4daf3c074600e5b6b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3419,6 +3424,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Xylophone
       objectReference: {fileID: 0}
+    - target: {fileID: 3901641547301448803, guid: b9872740816d8b445805e19c23507f96,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 35522507018083952, guid: b9872740816d8b445805e19c23507f96,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3519,6 +3529,46 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 288537733}
+    - target: {fileID: 5527250338602479837, guid: b9872740816d8b445805e19c23507f96,
+        type: 3}
+      propertyPath: nailedInDistance
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5620079985499095342, guid: b9872740816d8b445805e19c23507f96,
+        type: 3}
+      propertyPath: screwedInDistance
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5620079983996533214, guid: b9872740816d8b445805e19c23507f96,
+        type: 3}
+      propertyPath: screwedInDistance
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5620079984366696700, guid: b9872740816d8b445805e19c23507f96,
+        type: 3}
+      propertyPath: screwedInDistance
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5620079984561450255, guid: b9872740816d8b445805e19c23507f96,
+        type: 3}
+      propertyPath: screwedInDistance
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5620079984951695617, guid: b9872740816d8b445805e19c23507f96,
+        type: 3}
+      propertyPath: screwedInDistance
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5620079984573201609, guid: b9872740816d8b445805e19c23507f96,
+        type: 3}
+      propertyPath: screwedInDistance
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527250337651615650, guid: b9872740816d8b445805e19c23507f96,
+        type: 3}
+      propertyPath: nailedInDistance
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9872740816d8b445805e19c23507f96, type: 3}
 --- !u!4 &1760921974 stripped
@@ -3666,6 +3716,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Duck
+      objectReference: {fileID: 0}
+    - target: {fileID: 8420072740468440121, guid: 30f71a544a65eb9468512b0ba7a31f18,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4792184403436817962, guid: 30f71a544a65eb9468512b0ba7a31f18,
         type: 3}
