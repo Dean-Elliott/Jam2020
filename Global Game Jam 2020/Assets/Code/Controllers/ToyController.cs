@@ -25,8 +25,6 @@ public class ToyController : MonoBehaviour
     private List<IInteractable> parts = new List<IInteractable>();
     private bool isCompleted;
 
-    public int interactivePieces;
-
     public AudioSource audioSource;
     public AudioClip[] shoot;
     public AudioClip shootClip;
@@ -68,7 +66,7 @@ public class ToyController : MonoBehaviour
                 totalToyScore += part.Percentage;
             }
 
-            if (totalToyScore == interactivePieces)
+            if (totalToyScore == parts.Count)
             {
                 ToyCompleted();
             }

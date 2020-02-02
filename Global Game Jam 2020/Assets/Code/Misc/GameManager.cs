@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -94,12 +95,15 @@ public class GameManager : MonoBehaviour
 
     public void FinishGame()
     {
+        finalScore = (int)elapsingTime * 100;
+
+        SceneManager.LoadScene("NewEndScene", LoadSceneMode.Single);
         Debug.Log("Game Finished!");
     }
 
     public void CompleteCurrentToy()
     {
-        elapsingTime = finalScore * 100;
+
     }
 
     public static Color GetColor(ColorType colorType)
