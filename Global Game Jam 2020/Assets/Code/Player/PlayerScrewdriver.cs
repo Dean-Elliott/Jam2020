@@ -72,11 +72,11 @@ public class PlayerScrewdriver : Player
                     Visual.localEulerAngles = new Vector3(0f, GetRotation(RightStick), 0f);
 
                     closeScrew.Rotation = GetRotation(RightStick);
-                    Gamepad.SetMotorSpeeds(0f, amount * 0.5f);
+                    Gamepad?.SetMotorSpeeds(0f, amount * 0.5f);
                 }
                 else
                 {
-                    Gamepad.SetMotorSpeeds(amount, amount * 5f);
+                    Gamepad?.SetMotorSpeeds(amount, amount * 5f);
                 }
             }
 

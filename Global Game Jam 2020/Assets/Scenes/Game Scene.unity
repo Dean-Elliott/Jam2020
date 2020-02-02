@@ -370,6 +370,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1284061455440824263, guid: 86c7eabde537dd9488e9377034014786,
+        type: 3}
+      propertyPath: id
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1407279176462631473, guid: 86c7eabde537dd9488e9377034014786,
+        type: 3}
+      propertyPath: jumpHeight
+      value: 3.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86c7eabde537dd9488e9377034014786, type: 3}
 --- !u!1 &115843853
@@ -1491,17 +1501,17 @@ PrefabInstance:
     - target: {fileID: 7911613762005250156, guid: d24259dc3f2bccd448e0c3d917f1f11d,
         type: 3}
       propertyPath: m_fontColor.g
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7911613762005250156, guid: d24259dc3f2bccd448e0c3d917f1f11d,
         type: 3}
       propertyPath: m_fontColor.b
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7911613762005250156, guid: d24259dc3f2bccd448e0c3d917f1f11d,
         type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4294967295
+      value: 4278190335
       objectReference: {fileID: 0}
     - target: {fileID: 7911613762005250156, guid: d24259dc3f2bccd448e0c3d917f1f11d,
         type: 3}
@@ -2810,6 +2820,85 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1001 &1228997723
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 450825170865074787, guid: e9e817cbad7d4164d826f584d13af8f2,
+        type: 3}
+      propertyPath: m_Name
+      value: ScrewdriverPlayerwithAnimimations
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927770484508926075, guid: e9e817cbad7d4164d826f584d13af8f2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927770484508926075, guid: e9e817cbad7d4164d826f584d13af8f2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927770484508926075, guid: e9e817cbad7d4164d826f584d13af8f2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.3873632
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927770484508926075, guid: e9e817cbad7d4164d826f584d13af8f2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927770484508926075, guid: e9e817cbad7d4164d826f584d13af8f2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927770484508926075, guid: e9e817cbad7d4164d826f584d13af8f2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927770484508926075, guid: e9e817cbad7d4164d826f584d13af8f2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927770484508926075, guid: e9e817cbad7d4164d826f584d13af8f2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927770484508926075, guid: e9e817cbad7d4164d826f584d13af8f2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927770484508926075, guid: e9e817cbad7d4164d826f584d13af8f2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927770484508926075, guid: e9e817cbad7d4164d826f584d13af8f2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6792927713894256726, guid: e9e817cbad7d4164d826f584d13af8f2,
+        type: 3}
+      propertyPath: jumpHeight
+      value: 3.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6792927713894256725, guid: e9e817cbad7d4164d826f584d13af8f2,
+        type: 3}
+      propertyPath: id
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e9e817cbad7d4164d826f584d13af8f2, type: 3}
 --- !u!1 &1326154782
 GameObject:
   m_ObjectHideFlags: 0
@@ -5930,6 +6019,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ScrewdriverPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 3643939888800088442, guid: 1a07c4f30999b874c9dc934f5c0d7c91,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2603095669438954559, guid: 1a07c4f30999b874c9dc934f5c0d7c91,
         type: 3}
