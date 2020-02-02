@@ -14,6 +14,9 @@ public class Nail : MonoBehaviour, IInteractable
     [SerializeField]
     private Transform visual;
 
+    [SerializeField]
+    private AnimationCurve distanceOverProgress = new AnimationCurve();
+
     public float Percentage => Mathf.Clamp01(nailInStage / (float)maxNailInStage);
 
     private void OnDrawGizmos()
@@ -38,6 +41,6 @@ public class Nail : MonoBehaviour, IInteractable
     private void Update()
     {
         Vector3 nailedInPosition = Vector3.down * nailedInDistance;
-        visual.localPosition = Vector3.Lerp(Vector3.zero, nailedInPosition, Percentage);
+        visual.localPosition = Vector3.Lerp(Vector3.zero, nailedInPosition, distanceOverProgress.Evaluate(Percentage));
     }
 }
