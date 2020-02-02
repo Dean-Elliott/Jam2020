@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     public LazySuzie lazySusan;
 
     public float timeLimit;
-    private float elapsingTime;
+    public float elapsingTime;
 
     // Start is called before the first frame update
     void Start()

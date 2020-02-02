@@ -443,6 +443,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: New Text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -822,7 +824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c99ac6743b9b5948893cb6a5fdcab94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GM: {fileID: 0}
+  GM: {fileID: 1929199715}
 --- !u!1001 &1084415387
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -830,11 +832,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5190520294570092077, guid: 0c2f1dadb5cf937498b5a70978b3e26b,
-        type: 3}
-      propertyPath: screwedInDistance
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 6973183599832433400, guid: 0c2f1dadb5cf937498b5a70978b3e26b,
         type: 3}
       propertyPath: m_Name
@@ -894,6 +891,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5190520294570092077, guid: 0c2f1dadb5cf937498b5a70978b3e26b,
+        type: 3}
+      propertyPath: screwedInDistance
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c2f1dadb5cf937498b5a70978b3e26b, type: 3}
@@ -987,6 +989,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5509207912496273845}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 4a2ce2f333ea48f42a652abf2ed9f3d2,
+        type: 3}
+      propertyPath: m_Name
+      value: Hammer  Idle
+      objectReference: {fileID: 0}
     - target: {fileID: -6057140222963153312, guid: 4a2ce2f333ea48f42a652abf2ed9f3d2,
         type: 3}
       propertyPath: m_Controller
@@ -1062,11 +1069,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 50
       objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 4a2ce2f333ea48f42a652abf2ed9f3d2,
-        type: 3}
-      propertyPath: m_Name
-      value: Hammer  Idle
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a2ce2f333ea48f42a652abf2ed9f3d2, type: 3}
 --- !u!1001 &1406332855
@@ -1076,11 +1078,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5190520294570092077, guid: 0c2f1dadb5cf937498b5a70978b3e26b,
-        type: 3}
-      propertyPath: screwedInDistance
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 6973183599832433400, guid: 0c2f1dadb5cf937498b5a70978b3e26b,
         type: 3}
       propertyPath: m_Name
@@ -1140,6 +1137,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5190520294570092077, guid: 0c2f1dadb5cf937498b5a70978b3e26b,
+        type: 3}
+      propertyPath: screwedInDistance
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c2f1dadb5cf937498b5a70978b3e26b, type: 3}
@@ -1245,6 +1247,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2080617259950304799, guid: e9e817cbad7d4164d826f584d13af8f2,
+        type: 3}
+      propertyPath: m_Name
+      value: ScrewdriverPlayerwithAnimimations
+      objectReference: {fileID: 0}
     - target: {fileID: 413910418453524223, guid: e9e817cbad7d4164d826f584d13af8f2,
         type: 3}
       propertyPath: m_Controller
@@ -1305,11 +1312,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2080617259950304799, guid: e9e817cbad7d4164d826f584d13af8f2,
-        type: 3}
-      propertyPath: m_Name
-      value: ScrewdriverPlayerwithAnimimations
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9e817cbad7d4164d826f584d13af8f2, type: 3}
 --- !u!1 &1707761286
@@ -1367,6 +1369,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: New Text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1505,7 +1509,7 @@ MonoBehaviour:
   totalScoreText: {fileID: 361098560}
   timerText: {fileID: 1707761288}
   lazySusan: {fileID: 177569482}
-  timeLimit: 15
+  timeLimit: 30
 --- !u!4 &1929199716
 Transform:
   m_ObjectHideFlags: 0
@@ -1527,6 +1531,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: f8cbe77f7415f814e827f7045c00bdd2,
+        type: 3}
+      propertyPath: m_Name
+      value: ClockMan timer
+      objectReference: {fileID: 0}
     - target: {fileID: -6057140222963153312, guid: f8cbe77f7415f814e827f7045c00bdd2,
         type: 3}
       propertyPath: m_Controller
@@ -1601,11 +1610,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 600
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: f8cbe77f7415f814e827f7045c00bdd2,
-        type: 3}
-      propertyPath: m_Name
-      value: ClockMan timer
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8cbe77f7415f814e827f7045c00bdd2, type: 3}
@@ -1682,6 +1686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1438e4bb15de28d4faf96302b4f93df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hammerHit: {fileID: 0}
 --- !u!54 &3296374343110532543
 Rigidbody:
   m_ObjectHideFlags: 0
