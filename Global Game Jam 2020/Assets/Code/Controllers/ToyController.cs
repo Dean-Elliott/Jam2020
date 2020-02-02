@@ -17,7 +17,7 @@ public class ToyController : MonoBehaviour
 
     private float paintAccuracy;
 
-    public float bonusTimeLimit;
+    //public float bonusTimeLimit;
 
     [HideInInspector]
     public float elapsingBonusTime;
@@ -29,7 +29,7 @@ public class ToyController : MonoBehaviour
     void Start()
     {
         animatorComponent = gameObject.GetComponent<Animator>();
-        elapsingBonusTime = bonusTimeLimit;
+        //elapsingBonusTime = bonusTimeLimit;
 
         parts = GetComponentsInChildren<IInteractable>().ToList();
     }
@@ -65,7 +65,7 @@ public class ToyController : MonoBehaviour
     public void ToyCompleted()
     {
         isCompleted = true;
-        totalToyScore += (float)System.Math.Round(elapsingBonusTime, 0) + paintAccuracy;
+        //totalToyScore += (float)System.Math.Round(elapsingBonusTime, 0) + paintAccuracy;
         animatorComponent.SetBool("ToyCompleted", true);
 
         Debug.Log("Total toy score: " + totalToyScore);

@@ -16,27 +16,45 @@ public class GameManager : MonoBehaviour
     private float totalScore;
 
     public TextMeshProUGUI totalScoreText;
-    public TextMeshProUGUI bonusTimerText;
+    public TextMeshProUGUI timerText;
 
     private ToyController toyControllerComponent;
 
     public LazySuzie lazySusan;
 
+    public float timeLimit;
+    private float elapsingTime;
+
     // Start is called before the first frame update
     void Start()
     {
         toyControllerComponent = toys[0].GetComponent<ToyController>();
+        elapsingTime = timeLimit;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (elapsingTime > 0.0f)
+        {
+            elapsingTime -= Time.deltaTime;
+        }
+        else
+        {
+            elapsingTime = 0.0f;
+        }
+
+        timerText.text = "" + System.Math.Round(elapsingTime, 2);
+
         toys[currentToy].transform.rotation = lazySusan.transform.rotation;
 
-        if (bonusTimerText != null)
+        /*
+        if (timerText != null)
         {
-            //bonusTimerText.text = "Bonus Timer: " + System.Math.Round(toyControllerComponent.elapsingBonusTime, 2);
+            bonusTimerText.text = "Bonus Timer: " + System.Math.Round(toyControllerComponent.elapsingBonusTime, 2);
         }
+        */
 
         //set score to the score on the toy
         if (toyControllerComponent)
