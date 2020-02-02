@@ -61,7 +61,12 @@ public class PlayerScrewdriver : Player
                 float amount = (LeftStick - lastStickDir).magnitude;
                 lastStickDir = LeftStick;
                 closeScrew.ScrewIn(amount);
-                closeScrew.Rotation = transform.eulerAngles.y;
+                if (closeScrew.Percentage < 1f)
+                {
+                    closeScrew.Rotation = transform.eulerAngles.y;
+                }
+
+                Gamepad.SetMotorSpeeds(0f, amount * 3f);
             }
 
             //released the left trigger
@@ -73,6 +78,10 @@ public class PlayerScrewdriver : Player
             }
 
             return;
+        }
+        else
+        {
+            Gamepad.ResetHaptics();
         }
 
         //find closest screw

@@ -32,7 +32,7 @@ public class ToyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && developerModeActive == true)
+        if (Input.GetKeyDown(KeyCode.K) && developerModeActive == true)
         {
             ToyCompleted();
         }

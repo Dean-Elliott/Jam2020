@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class PlayerHammer : Player
@@ -66,6 +67,13 @@ public class PlayerHammer : Player
         }
     }
 
+    private async void Vibrate()
+    {
+        Gamepad.SetMotorSpeeds(1f, 0f);
+        await Task.Delay(100);
+        Gamepad.ResetHaptics();
+    }
+
     private void Hammer()
     {
         animationTime = 0f;
@@ -73,6 +81,8 @@ public class PlayerHammer : Player
         CanMove = false;
         Movement.Gravity = false;
         Movement.Rigidbody.velocity = Vector3.zero;
+
+        Vibrate();
 
         //snap to nearest nail lol
         Nail[] nails = FindObjectsOfType<Nail>();

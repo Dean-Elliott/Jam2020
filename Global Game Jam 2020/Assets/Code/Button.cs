@@ -4,46 +4,22 @@ using UnityEngine;
 
 public class Button : MonoBehaviour
 {
-
     public LazySuzie LazySuzie;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     void OnTriggerEnter(Collider col)
     {
-
-        if (col.gameObject.tag == "Player")
+        if (col.gameObject.tag == "Player" || col.gameObject.transform.parent.tag == "Player")
         {
             LazySuzie.ForwardY = true;
-
-
         }
-        /*
-        else
-        {
-           LazySuzie.ForwardY = false;
-        }
-        */
     }
 
-        void OnTriggerExit(Collider col)
+    void OnTriggerExit(Collider col)
+    {
+        if (col.gameObject.tag == "Player" || col.gameObject.transform.parent.tag == "Player")
         {
-            if (col.gameObject.tag == "Player")
-                {
-                LazySuzie.ForwardY = false;
-            }
-               
-            
+            LazySuzie.ForwardY = false;
         }
-    
+    }
+
 }

@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
 
     private ToyController toyControllerComponent;
 
+    public LazySuzie lazySusan;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +31,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        toys[currentToy].transform.rotation = lazySusan.transform.rotation;
+
         bonusTimerText.text = "Bonus Timer: " + System.Math.Round(toyControllerComponent.elapsingBonusTime, 2);
         totalScoreText.text = "Total Score: " + totalScore;
     }
@@ -43,6 +47,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            lazySusan.reset = true;
             toys[currentToy + 1].SetActive(true);
             currentToy++;
             toyControllerComponent = toys[currentToy].GetComponent<ToyController>();

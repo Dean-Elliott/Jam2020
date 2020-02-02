@@ -121,6 +121,12 @@ public class Player : MonoBehaviour
         }
     }
 
+    public int ControllerIndex
+    {
+        get => id;
+        set => id = value;
+    }
+
     private void Update()
     {
         //send inputs to the movement thingy

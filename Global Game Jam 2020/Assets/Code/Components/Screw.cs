@@ -14,6 +14,9 @@ public class Screw : MonoBehaviour, IInteractable
     [SerializeField]
     private float screwedInDistance = 1f;
 
+    [SerializeField]
+    private AnimationCurve screwCurve = new AnimationCurve();
+
     private Vector3 originalPosition;
 
     /// <summary>
@@ -53,7 +56,7 @@ public class Screw : MonoBehaviour, IInteractable
     private void Update()
     {
         Vector3 nailedInPosition = originalPosition - transform.up * screwedInDistance;
-        transform.localPosition = Vector3.Lerp(originalPosition, nailedInPosition, Percentage);
+        transform.localPosition = Vector3.Lerp(originalPosition, nailedInPosition, screwCurve.Evaluate(Percentage));
         transform.localEulerAngles = new Vector3(0f, Rotation, 0f);
     }
 }
