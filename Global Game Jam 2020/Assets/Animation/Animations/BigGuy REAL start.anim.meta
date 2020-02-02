@@ -1,8 +1,12 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Global Game Jam 2020/Assets/Animation/Animations/BigGuy REAL start.anim.meta
 guid: fe67ee9d8cf174247812a05dbfc8fc0c
 NativeFormatImporter:
+=======
+guid: 750699714b4dd274ba3e91cba005a0db
+PrefabImporter:
+>>>>>>> a085d7f7656f52f07d3f474bca8d7bf96cfbe007:Global Game Jam 2020/Assets/Prefabs/HammerHitEffect.prefab.meta
   externalObjects: {}
-  mainObjectFileID: 7400000
   userData: 
   assetBundleName: 
   assetBundleVariant: 
