@@ -38,7 +38,8 @@ public class PlayerMovement : MonoBehaviour
     /// Is the player currently grounded?
     /// </summary>
     public bool IsGrounded { get; private set; }
-
+    public GameObject footsteps;
+    private ParticleSystem footstepParticle;
     public bool Gravity { get; set; } = true;
 
     /// <summary>
@@ -51,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
         Rigidbody = GetComponent<Rigidbody>();
         Rigidbody.useGravity = false;
         Rigidbody.freezeRotation = true;
+        footstepParticle = footsteps.GetComponent<ParticleSystem>();
     }
 
     private void FixedUpdate()
@@ -83,6 +85,9 @@ public class PlayerMovement : MonoBehaviour
         {
             PerformJump();
         }
+
+        ParticleSystem.EmissionModule emit = footstepParticle.emission;
+        emit.enabled = IsMoving && IsGrounded;
     }
 
     /// <summary>
@@ -115,4 +120,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+
+
+
 }
