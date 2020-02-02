@@ -35,7 +35,7 @@ public class PlayerScrewdriver : Player
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position - transform.up * distanceToTip, 0.3f);
+        Gizmos.DrawWireSphere(transform.position - transform.up * distanceToTip, 0.8f);
     }
 
     protected override void OnUpdate()
