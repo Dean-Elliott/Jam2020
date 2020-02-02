@@ -34,7 +34,16 @@ public class GameManager : MonoBehaviour
         toys[currentToy].transform.rotation = lazySusan.transform.rotation;
 
         bonusTimerText.text = "Bonus Timer: " + System.Math.Round(toyControllerComponent.elapsingBonusTime, 2);
-        totalScoreText.text = "Total Score: " + totalScore;
+
+        //set score to the score on the toy
+        if (toyControllerComponent)
+        {
+            totalScoreText.text = "Total Score: " + toyControllerComponent.totalToyScore;
+        }
+        else
+        {
+            totalScoreText.text = "Total Score: " + totalScore;
+        }
     }
 
     public void ActivateNewToy()

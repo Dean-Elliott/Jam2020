@@ -11,7 +11,8 @@ public class Nail : MonoBehaviour, IInteractable
     [SerializeField]
     private float nailedInDistance = 1f;
 
-    private Vector3 originalPosition;
+    [SerializeField]
+    private Transform visual;
 
     public float Percentage => Mathf.Clamp01(nailInStage / (float)maxNailInStage);
 
@@ -24,12 +25,7 @@ public class Nail : MonoBehaviour, IInteractable
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position - transform.up * nailedInDistance * Percentage, 0.25f);
     }
-
-    private void Awake()
-    {
-        originalPosition = transform.localPosition;
-    }
-
+    
     public void NailMeIn()
     {
         nailInStage++;
@@ -41,7 +37,7 @@ public class Nail : MonoBehaviour, IInteractable
 
     private void Update()
     {
-        Vector3 nailedInPosition = originalPosition - transform.up * nailedInDistance;
-        transform.localPosition = Vector3.Lerp(originalPosition, nailedInPosition, Percentage);
+        Vector3 nailedInPosition = Vector3.down * nailedInDistance;
+        visual.localPosition = Vector3.Lerp(Vector3.zero, nailedInPosition, Percentage);
     }
 }

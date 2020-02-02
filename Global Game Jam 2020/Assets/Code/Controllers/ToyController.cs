@@ -9,7 +9,6 @@ public class ToyController : MonoBehaviour
 
     public GameObject owner;
 
-    [HideInInspector]
     public float totalToyScore;
 
     public bool developerModeActive = false;
@@ -24,6 +23,7 @@ public class ToyController : MonoBehaviour
     public float elapsingBonusTime;
 
     private List<IInteractable> parts = new List<IInteractable>();
+    private bool isCompleted;
 
     // Start is called before the first frame update
     void Start()
@@ -51,32 +51,20 @@ public class ToyController : MonoBehaviour
 
         transform.position = enterPosition;
 
-        //check when a part is 100% donesies
-        float percentage = 0f;
-        for (int i = parts.Count - 1; i >= 0; i--)
+        //calculate total score
+        if (!isCompleted)
         {
-            IInteractable part = parts[i];
-            percentage += part.Percentage;
-
-            //if (part.Percentage == 1f)
-            //{
-            //    //part reached 100
-            //    //add score and removeth from list
-            //    parts.RemoveAt(i);
-            //    AddPieceScore(1f);
-            //}
+            totalToyScore = 0f;
+            foreach (var part in parts)
+            {
+                totalToyScore += part.Percentage;
+            }
         }
-
-        percentage /= parts.Count;
-    }
-
-    public void AddPieceScore(float pieceScore)
-    {
-        totalToyScore += pieceScore;
     }
 
     public void ToyCompleted()
     {
+        isCompleted = true;
         totalToyScore += (float)System.Math.Round(elapsingBonusTime, 0) + paintAccuracy;
         animatorComponent.SetBool("ToyCompleted", true);
 
