@@ -44,6 +44,8 @@ public class GameManager : MonoBehaviour
         {
             totalScoreText.text = "Total Score: " + totalScore;
         }
+        bonusTimerText.text = "" + System.Math.Round(toyControllerComponent.elapsingBonusTime, 2);
+        totalScoreText.text = " " + totalScore;
     }
 
     public void ActivateNewToy()
