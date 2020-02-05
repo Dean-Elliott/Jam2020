@@ -30,7 +30,10 @@ public class GameManager : MonoBehaviour
     public LazySuzie lazySusan;
 
     public float timeLimit;
+    [HideInInspector]
     public float elapsingTime;
+    private string minutes;
+    private string seconds;
 
     // Start is called before the first frame update
     void Start()
@@ -62,11 +65,18 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if(isStartScreen == false)
-        timerText.text = "" + System.Math.Round(elapsingTime, 2);
+        if (isStartScreen == false)
+        {
+            minutes = Mathf.Floor(elapsingTime / 60).ToString("00");
+            seconds = Mathf.Floor(elapsingTime % 60).ToString("00");
 
-        if(isStartScreen == false)
-        toys[currentToy].transform.rotation = lazySusan.transform.rotation;
+            timerText.text = string.Format("{0}:{1}", minutes, seconds);
+        }
+
+        if (isStartScreen == false)
+        {
+            toys[currentToy].transform.rotation = lazySusan.transform.rotation;
+        }
 
         /*
         if (timerText != null)
