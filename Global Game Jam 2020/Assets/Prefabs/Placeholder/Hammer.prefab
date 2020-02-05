@@ -58,6 +58,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1438e4bb15de28d4faf96302b4f93df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hammerHit: {fileID: 0}
+  hitEffect: {fileID: 0}
 --- !u!54 &811951844804398867
 Rigidbody:
   m_ObjectHideFlags: 0
