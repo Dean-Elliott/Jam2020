@@ -59,17 +59,23 @@ public class Player : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Value from 0 to 1 from the left trigger, or right trigger, or shift on the keyboard.
+    /// </summary>
     public float Trigger
     {
         get
         {
-            float kb = Keyboard.current.qKey.isPressed ? 1 : 0;
+            float kb = Keyboard.current.leftShiftKey.isPressed ? 1 : 0;
             float right = Gamepad?.rightTrigger?.ReadValue() ?? default;
             float left = Gamepad?.leftTrigger?.ReadValue() ?? default;
             return Mathf.Max(kb, right, left);
         }
     }
 
+    /// <summary>
+    /// A vector that represents the left stick on a gamepad, or a WASD.
+    /// </summary>
     public Vector2 LeftStick
     {
         get
@@ -77,33 +83,36 @@ public class Player : MonoBehaviour
             Gamepad gamepad = Gamepad;
             if (gamepad != null)
             {
-                return gamepad.leftStick.ReadValue();
+                return gamepad.leftStick.ReadValue().normalized;
             }
             else
             {
                 Vector2 vector = default;
                 if (Keyboard.current.wKey.isPressed)
                 {
-                    vector.y = 1;
+                    vector.y += 1;
                 }
-                else if (Keyboard.current.aKey.isPressed)
+                if (Keyboard.current.aKey.isPressed)
                 {
-                    vector.x = -1;
+                    vector.x -= 1;
                 }
-                else if (Keyboard.current.sKey.isPressed)
+                if (Keyboard.current.sKey.isPressed)
                 {
-                    vector.y = -1;
+                    vector.y -= 1;
                 }
-                else if (Keyboard.current.dKey.isPressed)
+                if (Keyboard.current.dKey.isPressed)
                 {
-                    vector.x = 1;
+                    vector.x += 1;
                 }
 
-                return vector;
+                return vector.normalized;
             }
         }
     }
 
+    /// <summary>
+    /// A vector that represents the right stick on a gamepad, or arrow keys.
+    /// </summary>
     public Vector2 RightStick
     {
         get
@@ -111,10 +120,30 @@ public class Player : MonoBehaviour
             Gamepad gamepad = Gamepad;
             if (gamepad != null)
             {
-                return gamepad.rightStick.ReadValue();
+                return gamepad.rightStick.ReadValue().normalized;
             }
+            else
+            {
+                Vector2 vector = default;
+                if (Keyboard.current.upArrowKey.isPressed)
+                {
+                    vector.y += 1;
+                }
+                if (Keyboard.current.leftArrowKey.isPressed)
+                {
+                    vector.x -= 1;
+                }
+                if (Keyboard.current.downArrowKey.isPressed)
+                {
+                    vector.y -= 1;
+                }
+                if (Keyboard.current.rightArrowKey.isPressed)
+                {
+                    vector.x += 1;
+                }
 
-            return default;
+                return vector.normalized;
+            }
         }
     }
 

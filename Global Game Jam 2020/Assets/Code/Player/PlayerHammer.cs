@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using UnityEngine;
 
 public class PlayerHammer : Player
@@ -67,11 +66,15 @@ public class PlayerHammer : Player
         }
     }
 
-    private async void Vibrate()
+    /// <summary>
+    /// Vibrates for a bit.
+    /// </summary>
+    private async void Vibrate(float duration = 0.1f)
     {
-        Gamepad.SetMotorSpeeds(1f, 0f);
-        await Task.Delay(100);
-        Gamepad.ResetHaptics();
+        Gamepad?.SetMotorSpeeds(1f, 0f);
+        int ms = (int)(duration * 1000);
+        await Task.Delay(ms);
+        Gamepad?.ResetHaptics();
     }
 
     private void Hammer()
@@ -83,6 +86,19 @@ public class PlayerHammer : Player
         Movement.Rigidbody.velocity = Vector3.zero;
 
         Vibrate();
+        LookTowardsNearbyNail();
+    }
+
+    /// <summary>
+    /// Tis the magnetize effect.
+    /// </summary>
+    private void LookTowardsNearbyNail()
+    {
+        //max assist angle
+        float maxAngle = 60f;
+
+        //max distance to check with
+        float range = 3.6f;
 
         //snap to nearest nail lol
         Nail[] nails = FindObjectsOfType<Nail>();
@@ -90,15 +106,21 @@ public class PlayerHammer : Player
         Nail closestNail = null;
         foreach (Nail nail in nails)
         {
-            float dist = (nail.transform.position - transform.position).sqrMagnitude;
-            if (dist > 2f * 2f)
+            //get dir, flatten on the y axis to ensure that the angle and distance is calculated on the XZ plane
+            Vector3 dirToNail = nail.transform.position - transform.position;
+            dirToNail.y = 0f;
+
+            if (dirToNail.sqrMagnitude > range * range)
             {
+                //too far
                 continue;
             }
 
-            Vector3 dirToNail = (nail.transform.position - transform.position).normalized;
+            //normalize later
+            dirToNail.Normalize();
+
             float angle = Vector3.Angle(transform.forward, dirToNail);
-            if (angle < closest)
+            if (angle < closest && angle < maxAngle)
             {
                 closest = angle;
                 closestNail = nail;
