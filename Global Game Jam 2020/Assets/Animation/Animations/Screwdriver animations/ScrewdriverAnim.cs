@@ -7,10 +7,14 @@ public class ScrewdriverAnim : MonoBehaviour
     public PlayerScrewdriver PlayerS;
     public PlayerMovement Player;
     private Animator anim;
+    private bool IsJump;
+    private float mTime;
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
+        mTime = 0;
+        IsJump = false;
     }
 
     // Update is called once per frame
@@ -21,5 +25,42 @@ public class ScrewdriverAnim : MonoBehaviour
         anim.SetBool("IsScrewing", PlayerS.IsScrewingIn);
         
         anim.SetBool("IsWalking", Player.IsMoving);
+        anim.SetFloat("JumpTime", mTime);
+
+        if (Player.Jump == true)
+        {
+            IsJump = true;
+            anim.SetBool("IsJumping", true);
+            
+
+        }
+
+        if (IsJump == true)
+        {
+            StartTimer();
+            if (mTime >= 1)
+            {
+                StopTimer();
+                ResetTimer();
+                IsJump = false;
+            }
+        }
+
+
+
+
+    }
+    void StartTimer()
+    {
+        mTime += Time.deltaTime;
+    }
+    void StopTimer()
+    {
+        anim.SetBool("IsJumping", false);
+        mTime = mTime + 0;
+    }
+    void ResetTimer()
+    {
+        mTime = 0;
     }
 }
