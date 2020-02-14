@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8070542726003227229}
   - component: {fileID: 8070542726003227202}
   - component: {fileID: 8070542726003227203}
+  - component: {fileID: 586626467146521045}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Untagged
@@ -93,6 +94,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &586626467146521045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8070542726003227201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 0
+  eraseRenderer: 0
 --- !u!1 &8070542726344199212
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,6 +156,31 @@ MonoBehaviour:
   nailInStage: 0
   maxNailInStage: 3
   nailedInDistance: 2.51
+  visual: {fileID: 0}
+  distanceOverProgress:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &8070542727373608036
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,6 +193,7 @@ GameObject:
   - component: {fileID: 8070542727373608032}
   - component: {fileID: 8070542727373608033}
   - component: {fileID: 8070542727373608038}
+  - component: {fileID: 1882781982125002022}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -234,3 +275,17 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1882781982125002022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8070542727373608036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 0
+  eraseRenderer: 0

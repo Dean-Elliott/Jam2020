@@ -72,10 +72,12 @@ public class PlayerScrewdriver : Player
                     Visual.localEulerAngles = new Vector3(0f, GetRotation(RightStick), 0f);
 
                     closeScrew.Rotation = GetRotation(RightStick);
+                    closeScrew.Highlight();
                     Gamepad?.SetMotorSpeeds(0f, amount * 0.5f);
                 }
                 else
                 {
+                    //uh, too much screw
                     Gamepad?.SetMotorSpeeds(amount, amount * 5f);
                 }
             }
@@ -101,18 +103,25 @@ public class PlayerScrewdriver : Player
 
         //find closest screw
         closeScrew = GetClosestScrew();
-        if (closeScrew && Trigger > 0.2f)
+        if (closeScrew)
         {
-            screwingTime = 0f;
-            IsScrewingIn = true;
-            CanMove = false;
-            CanLookAround = false;
-            lastStickDir = RightStick;
-            originalPosition = transform.position;
+            //highlight it
+            closeScrew.Highlight();
 
-            //get middle pos by doing avg of 2 positions + half angle of driver to screw
-            middlePosition = (closeScrew.Top + originalPosition) * 0.5f;
-            middlePosition += transform.up + closeScrew.transform.up;
+            //interact with it
+            if (Trigger > 0.2f)
+            {
+                screwingTime = 0f;
+                IsScrewingIn = true;
+                CanMove = false;
+                CanLookAround = false;
+                lastStickDir = RightStick;
+                originalPosition = transform.position;
+
+                //get middle pos by doing avg of 2 positions + half angle of driver to screw
+                middlePosition = (closeScrew.Top + originalPosition) * 0.5f;
+                middlePosition += transform.up + closeScrew.transform.up;
+            }
         }
     }
 

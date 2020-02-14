@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using cakeslice;
+using UnityEngine;
 
 public class Screw : MonoBehaviour, IInteractable
 {
@@ -25,6 +26,9 @@ public class Screw : MonoBehaviour, IInteractable
 
     private Vector3 originalPosition;
     private Vector3 destinationPosition;
+    private Outline[] outlines = { };
+    private float nextUnselect;
+    private bool selected;
 
     /// <summary>
     /// The rotation of the screw on its local Y axis.
@@ -61,6 +65,7 @@ public class Screw : MonoBehaviour, IInteractable
 
     private void Awake()
     {
+        outlines = GetComponentsInChildren<Outline>();
         originalPosition = screwVisual.localPosition;
         destinationPosition = screwVisual.localPosition + Vector3.down * screwedInDistance;
     }
@@ -74,10 +79,35 @@ public class Screw : MonoBehaviour, IInteractable
         }
     }
 
+    /// <summary>
+    /// Highlight this screw for a bit.
+    /// </summary>
+    public void Highlight()
+    {
+        //if already all the in, can you dont
+        if (progress >= 1f)
+        {
+            return;
+        }
+
+        selected = true;
+        nextUnselect = Time.time + 0.1f;
+    }
+
     private void Update()
     {
         screwVisual.localPosition = Vector3.Lerp(originalPosition, destinationPosition, screwCurve.Evaluate(Percentage));
         screwVisual.localEulerAngles = new Vector3(-90f, 0.0f, Rotation);
+
+        if (Time.time > nextUnselect)
+        {
+            selected = false;
+        }
+
+        foreach (Outline outline in outlines)
+        {
+            outline.enabled = selected;
+        }
     }
 
     private void LateUpdate()

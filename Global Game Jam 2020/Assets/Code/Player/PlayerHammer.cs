@@ -44,6 +44,8 @@ public class PlayerHammer : Player
             return;
         }
 
+        HighlightNearbyNails();
+
         //pull back based on trigger
         if (Trigger > 0.1f)
         {
@@ -89,16 +91,13 @@ public class PlayerHammer : Player
         LookTowardsNearbyNail();
     }
 
-    /// <summary>
-    /// Tis the magnetize effect.
-    /// </summary>
-    private void LookTowardsNearbyNail()
+    private Nail GetNearbyNail()
     {
         //max assist angle
-        float maxAngle = 60f;
+        float maxAngle = 40f;
 
         //max distance to check with
-        float range = 3.6f;
+        float range = 3.2f;
 
         //snap to nearest nail lol
         Nail[] nails = FindObjectsOfType<Nail>();
@@ -106,13 +105,13 @@ public class PlayerHammer : Player
         Nail closestNail = null;
         foreach (Nail nail in nails)
         {
-            //get dir, flatten on the y axis to ensure that the angle and distance is calculated on the XZ plane
+            //get dir and flatten on Y, so that the math is done on the XZ plane
             Vector3 dirToNail = nail.transform.position - transform.position;
             dirToNail.y = 0f;
 
+            //too far by distance
             if (dirToNail.sqrMagnitude > range * range)
             {
-                //too far
                 continue;
             }
 
@@ -127,10 +126,29 @@ public class PlayerHammer : Player
             }
         }
 
-        //look towards closest nail
-        if (closestNail)
+        return closestNail;
+    }
+
+    private void HighlightNearbyNails()
+    {
+        Nail nail = GetNearbyNail();
+        if (nail)
         {
-            Vector3 dirToNail = (closestNail.transform.position - transform.position).normalized;
+            nail.Highlight();
+        }
+    }
+
+    /// <summary>
+    /// Tis the magnetize effect.
+    /// </summary>
+    private void LookTowardsNearbyNail()
+    {
+        Nail nail = GetNearbyNail();
+
+        //look towards closest nail
+        if (nail)
+        {
+            Vector3 dirToNail = (nail.transform.position - transform.position).normalized;
             Debug.DrawRay(transform.position, dirToNail, Color.yellow, 2f);
 
             Vector3 eulerAngles = transform.eulerAngles;
