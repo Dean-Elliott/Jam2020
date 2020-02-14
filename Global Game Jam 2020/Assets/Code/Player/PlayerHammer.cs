@@ -17,6 +17,7 @@ public class PlayerHammer : Player
 
     private float animationTime;
     public bool wasPullingBack;
+    public AudioSource audiosource;
 
     public bool IsHammering { get; private set; }
 
@@ -86,6 +87,7 @@ public class PlayerHammer : Player
         CanMove = false;
         Movement.Gravity = false;
         Movement.Rigidbody.velocity = Vector3.zero;
+        audiosource.Play();
 
         Vibrate();
         LookTowardsNearbyNail();
