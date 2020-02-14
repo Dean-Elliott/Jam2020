@@ -5,14 +5,14 @@ public class PlayerHammerHead : MonoBehaviour
     public PlayerHammer Hammer { get; private set; }
 
     public AudioClip hammerHit;
-    AudioSource audioSource;
+    //public AudioSource audioSource;
     private float nextNailIn;
     public GameObject hitEffect;
 
     private void Awake()
     {
         Hammer = GetComponentInParent<PlayerHammer>();
-        audioSource = GetComponent<AudioSource>();
+        //audioSource = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -20,10 +20,7 @@ public class PlayerHammerHead : MonoBehaviour
         //too soon
         if (Time.time < nextNailIn)
         {
-            if (audioSource)
-            {
-                audioSource.PlayOneShot(hammerHit, 0.7F);
-            }
+            
 
             return;
         }
@@ -38,18 +35,18 @@ public class PlayerHammerHead : MonoBehaviour
             Nail nail = collision.GetComponentInParent<Nail>();
             if (nail)
             {
-                if (audioSource)
-                {
-                    audioSource.PlayOneShot(hammerHit, 0.7F);
-                }
+              
 
                 nextNailIn = Time.time + 0.25f;
                 nail.NailMeIn();
 
                 if (hitEffect)
                 {
+                    //audioSource.Play();
                     var newEffect = Instantiate(hitEffect, transform.position, Quaternion.identity);
                     Destroy(newEffect, 2f);
+                   
+
                 }
             }
         }
